@@ -24,17 +24,22 @@ main {
   display: block;
 }
 
-.allMatches {
-  display: block;
-}
-
 .savedMatches-list {
   list-style: none;
   margin-bottom: 20px;
   padding: 0;
 }
 
-.allMatches-list {
-  list-style: none;
+.allMatches {
+  display: block;
 }
 
+.allMatches-list {
+  list-style: none;
+  padding: 0;
+}
+
+.allMatches-day {
+  list-style: none;
+  padding: 0;
+}
