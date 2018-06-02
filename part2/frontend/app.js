@@ -10,19 +10,42 @@ class App extends React.Component {
     this.state = {
       matches: [],
       teams: [],
+      savedMatches: [],
     };
+    this.addMatchToSavedMatches = this.addMatchToSavedMatches.bind(this);
   }
   componentDidMount() {
-    Promise.all([api.getAllMatches(), api.getAllTeams()]).then(result => {
-      this.setState({ matches: result[0].matches, teams: result[1].teams });
-    }); // Todo: Add error handling
+    Promise.all([
+      api.getAllMatches(),
+      api.getAllTeams(),
+      api.getAllSavedMatches(),
+    ]).then(result => {
+      this.setState({
+        matches: result[0].matches,
+        teams: result[1].teams,
+        savedMatches: result[2].savedMatches,
+      });
+    });
   }
+
+  addMatchToSavedMatches(matchId) {
+    api.saveMatch(matchId).then(res => {
+      this.setState(prevState => {
+        prevState.savedMatches.push(res.matchId);
+      });
+    });
+  }
+
   render() {
     return (
       <main className="mainSection">
         <h1>VM-planlegger</h1>
         <h2>Dine kamper</h2>
-        <MatchSchedule matches={this.state.matches} teams={this.state.teams} />
+        <MatchSchedule
+          matches={this.state.matches}
+          teams={this.state.teams}
+          saveMatch={this.addMatchToSavedMatches}
+        />
       </main>
     );
   }

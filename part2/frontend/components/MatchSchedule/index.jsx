@@ -30,9 +30,11 @@ class MatchSchedule extends React.Component {
             const matchesThisDay = day[1];
             return (
               <MatchDay
+                key={date}
                 date={date}
                 matches={matchesThisDay}
                 teams={this.props.teams}
+                saveMatch={this.props.saveMatch}
               />
             );
           })}

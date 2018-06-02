@@ -22,7 +22,13 @@ class MatchDay extends React.Component {
             const homeTeam = homeTeamObj ? homeTeamObj.name : "?";
             const awayTeam = awayTeamObj ? awayTeamObj.name : "?";
             return (
-              <Match match={match} homeTeam={homeTeam} awayTeam={awayTeam} />
+              <Match
+                key={match.name}
+                match={match}
+                homeTeam={homeTeam}
+                awayTeam={awayTeam}
+                saveMatch={this.props.saveMatch}
+              />
             );
           })}
         </ul>

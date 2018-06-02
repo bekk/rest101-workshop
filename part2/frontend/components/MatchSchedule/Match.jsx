@@ -7,7 +7,12 @@ const Match = props => {
     <li className="allMatches-match">
       <span className="allMatches-time">{timeOfMatch} </span>
       {props.homeTeam} - {props.awayTeam}
-      {/* <button class="allMatches-addMatch">Legg til</button> */}
+      <button
+        className="allMatches-addMatch"
+        onClick={() => props.saveMatch(props.match.name)}
+      >
+        Legg til
+      </button>
     </li>
   );
 };
