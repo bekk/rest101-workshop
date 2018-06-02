@@ -8,6 +8,10 @@ h1 {
   text-align: center;
 }
 
+h3 {
+  margin: 20px 0 8px;
+}
+
 main {
   display: flex;
   flex-direction: column;
@@ -39,7 +43,11 @@ main {
   padding: 0;
 }
 
-.allMatches-day {
+.allMatches-daylist {
   list-style: none;
   padding: 0;
+}
+
+.allMatches-match {
+  margin-bottom: 5px;
 }

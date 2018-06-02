@@ -15,7 +15,7 @@ class MatchDay extends React.Component {
     return (
       <div>
         <h3>{this.props.date}</h3>
-        <ul>
+        <ul className="allMatches-daylist">
           {this.props.matches.map(match => {
             const homeTeamObj = this.getTeamWithId(match.home_team);
             const awayTeamObj = this.getTeamWithId(match.away_team);
