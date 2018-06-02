@@ -1,0 +1,40 @@
+body {
+  background: #252525;
+  color: #ebebeb;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+h1 {
+  text-align: center;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+}
+
+.mainSection {
+  width: 90%;
+  padding: 0 5%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.savedMatches {
+  display: block;
+}
+
+.allMatches {
+  display: block;
+}
+
+.savedMatches-list {
+  list-style: none;
+  margin-bottom: 20px;
+  padding: 0;
+}
+
+.allMatches-list {
+  list-style: none;
+}
+
