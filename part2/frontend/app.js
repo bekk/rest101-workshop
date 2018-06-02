@@ -29,11 +29,14 @@ class App extends React.Component {
   }
 
   addMatchToSavedMatches(matchId) {
-    api.saveMatch(matchId).then(res => {
-      this.setState(prevState => {
-        prevState.savedMatches.push(res.matchId);
-      });
-    });
+    api
+      .saveMatch(matchId)
+      .then(res => {
+        this.setState(prevState => {
+          return { savedMatches: [...prevState.savedMatches, res.matchId] };
+        });
+      })
+      .catch(err => console.log(err));
   }
 
   render() {

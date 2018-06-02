@@ -13,9 +13,12 @@ function getAllSavedMatches() {
 function saveMatch(matchId) {
   return fetch("api/savedmatches", {
     method: "POST",
-    body: {
-      matchId: matchId,
+    headers: {
+      "Content-Type": "application/json",
     },
+    body: JSON.stringify({
+      matchId: matchId,
+    }),
   }).then(res => res.json());
 }
 
