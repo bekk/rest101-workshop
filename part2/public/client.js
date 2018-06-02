@@ -33,7 +33,7 @@ function renderAllMatches(matches, teams) {
     const homeTeam = homeTeamObj ? homeTeamObj.name : "?";
     const awayTeam = awayTeamObj ? awayTeamObj.name : "?";
 
-    return `<li>
+    return `<li class="allMatches-match" data-matchId="${match.name}">
               <span class="allMatches-time">${timeOfMatch}</span>
               ${homeTeam} - ${awayTeam}
             </li>`;
@@ -50,39 +50,14 @@ function renderAllMatches(matches, teams) {
   allMatchesList.innerHTML = html;
 }
 
-function initateApp() {
-  Promise.all([getAllMatches(), getAllTeams()]).then(function(result) {
-    state.matches = result[0].matches;
-    state.teams = result[1].teams;
-    renderAllMatches(state.matches, state.teams);
-    // let lol = getMatchesGroupedByDay(state.matches);
-  });
+function saveMatch(matchId) {
+  fetch("api/savedmatches", {
+    method: "POST",
+    body: {
+      matchId: matchId,
+    }
+  })
 }
-
-
-
-
-function showTrackSearchResults(results) {
-  const html = results.reduce((tempHtml, track) => tempHtml + trackToListHtml(track), "");
-  const searchResultsList = document.getElementById("searchResults");
-  searchResultsList.innerHTML = html;
-}
-
-function trackToListHtml(track) {
-  return `<li class="searchResults-li">
-    <span class="searchResults-trackName">${track.name}</span>
-    <span class="searchResults-artists">
-      ${track.artists.map(artist => artist.name).join(", ")}
-    </span>
-    </li>`;
-    // <button class="addToListButton" data-spotifyId=${track.id}>Legg til</button>
-}
-
-function trackToString(track) {
-  const artists = track.artists.map(artist => artist.name).join(", ");
-  return track.name + " - " + artists;
-}
-
 function searchButtonClicked(event) {
   const searchString = document.getElementById("searchField").value;
   searchForTracks(searchString).then(tracks => {
@@ -91,21 +66,23 @@ function searchButtonClicked(event) {
   });
 }
 
+function initateApp() {
+  // Fetch data and render matches
+  Promise.all([getAllMatches(), getAllTeams()]).then(function(result) {
+    state.matches = result[0].matches;
+    state.teams = result[1].teams;
+    renderAllMatches(state.matches, state.teams);
+  });
+}
 
 document.addEventListener("DOMContentLoaded", function() {
   initateApp();
-
-  // const searchButton = document.getElementById("searchButton");
-  // const searchField = document.getElementById("searchField");
-
-  // searchButton.addEventListener("click", searchButtonClicked);
-  // searchField.addEventListener("keyup", (event) => {
-  //   if (event.keyCode === 13) { // 13 === enter 
-  //     searchButtonClicked();
-  //   } 
-  // });
 });
 
+
+
+// Helper functions
+// Function is obtained from: https://stackoverflow.com/questions/14446511/
 function groupBy(list, keyGetter) {
   const map = new Map();
   list.forEach((item) => {

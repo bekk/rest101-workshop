@@ -7,6 +7,11 @@ var fs = require('fs');
 app.use(express.static('public'))
 app.use(express.json());
 
+app.get("/", (req, res) => {
+  res.sendFile('index.html', { root: __dirname });
+});
+
+
 // Data er hentet fra https://github.com/lsv/fifa-worldcup-2018
 var worldcupData = JSON.parse(fs.readFileSync('./worldcup2018.json', 'utf8'));
 
@@ -16,14 +21,16 @@ const groupMatches = Object.values(worldcupData.groups)
 const knockoutMatches = Object.values(worldcupData.knockout)
   .reduce((allMatches, round) => allMatches.concat(Object.values(round.matches)), []);
 
-
 let matches = [...groupMatches, ...knockoutMatches];
+
+// let savedMatch = {
+//   matchId: 2,
+// } 
 let savedMatches = [];
 
+
 // Endepunkt
-app.get("/", (req, res) => {
-  res.sendFile('index.html', { root: __dirname });
-});
+
 
 app.get("/api/matches", (req, res) => {
   res.send({
@@ -31,40 +38,36 @@ app.get("/api/matches", (req, res) => {
   });
 });
 
+// app.get("/api/matches/:id", (req, res) => {
+//   const match = matches.find(a => a.id === parseInt(req.params.id));
+//   if (!match) {
+//     res.status(404).send("The match with the given ID was not found");
+//     return;
+//   }
+//   res.send(match);
+// });
+
 app.get("/api/teams", (req, res) => {
   res.send({
     teams: worldcupData.teams,
   });
 });
 
-app.get("/api/matches/:id", (req, res) => {
-  const match = matches.find(a => a.id === parseInt(req.params.id));
-  if (!match) {
-    res.status(404).send("The match with the given ID was not found");
-    return;
-  }
-  res.send(match);
-});
-
 app.get("/api/savedmatches", (req, res) => {
   res.send({
-    matches: savedMatches
+    savedMatches: savedMatches
   });
 });
 
 app.post("/api/savedmatches", (req, res) => {
-  if (!res.body.match) {
-    res.status(400).send('Body is required in request');
+  if (!req.body.matchId) {
+    res.status(400).send("Body with a matchId is required in request");
     return;
   }
-  let match = res.body.match;
+  let matchId = req.body.matchId;
 
-  const savedmatches = {
-    id: tracks.length + 1,
-    name: req.body.name,
-  };
-  savedmatches.push(match);
-  res.send(match);
+  savedMatches.push(matchId);
+  res.send(req.body);
 });
 
 app.put("/api/savedmatches/:id", (req, res) => {
