@@ -4,7 +4,7 @@ const app = express();
 var fs = require('fs');
 
 // Middlewares
-app.use(express.static('public'))
+app.use(express.static('dist'))
 app.use(express.json());
 
 app.get("/", (req, res) => {
