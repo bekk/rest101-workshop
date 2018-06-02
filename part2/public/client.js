@@ -19,7 +19,12 @@ function getTeamWithId(id) {
 
 function renderAllMatches(matches, teams) {
   const matchesGroupedByDayAsMap = groupBy(state.matches, (match) => match.date.slice(0,10));
-  const matchesGroupedByDaySorted = [...matchesGroupedByDayAsMap.entries()].sort((a, b) => new Date(a[0]) - new Date(b[0]))
+  const matchesGroupedByDaySorted = [...matchesGroupedByDayAsMap.entries()]
+    .sort((a, b) => new Date(a[0]) - new Date(b[0]))
+    .map(day => {
+      day[1] = day[1].sort((a, b) => new Date(a.date) - new Date(b.date));
+      return day;
+    });
 
   const matchToHtml = match => {
     const timeOfMatch = new Date(match.date).toTimeString().slice(0,5);
