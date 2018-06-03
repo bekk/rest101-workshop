@@ -26,12 +26,13 @@ const knockoutMatches = Object.values(worldcupData.knockout).reduce(
 
 let matches = [...groupMatches, ...knockoutMatches];
 
-// let savedMatch = {
-//   matchId: 2,
-// }
 let savedMatches = [];
 
-// Endepunkt
+app.get("/api/teams", (req, res) => {
+  res.send({
+    teams: worldcupData.teams,
+  });
+});
 
 app.get("/api/matches", (req, res) => {
   res.send({
@@ -39,19 +40,13 @@ app.get("/api/matches", (req, res) => {
   });
 });
 
-// app.get("/api/matches/:id", (req, res) => {
-//   const match = matches.find(a => a.id === parseInt(req.params.id));
-//   if (!match) {
-//     res.status(404).send("The match with the given ID was not found");
-//     return;
-//   }
-//   res.send(match);
-// });
-
-app.get("/api/teams", (req, res) => {
-  res.send({
-    teams: worldcupData.teams,
-  });
+app.get("/api/matches/:id", (req, res) => {
+  const match = matches.find(m => m.name === parseInt(req.params.id));
+  if (!match) {
+    res.status(404).send("The match with the given ID was not found");
+    return;
+  }
+  res.send(match);
 });
 
 app.get("/api/savedmatches", (req, res) => {
@@ -66,10 +61,21 @@ app.post("/api/savedmatches", (req, res) => {
     res.status(400).send("Body with a matchId is required in request");
     return;
   }
+
   let matchId = req.body.matchId;
 
   savedMatches.push(matchId);
   res.send(req.body);
+});
+
+app.delete("/api/savedmatches/:id", (req, res) => {
+  const indexOfMatch = savedMatches.indexOf(parseInt(req.params.id, 10));
+  if (indexOfMatch === -1) {
+    res.status(404).send();
+  } else {
+    savedMatches.splice(indexOfMatch, 1);
+    res.status(204).send();
+  }
 });
 
 app.put("/api/savedmatches/:id", (req, res) => {
