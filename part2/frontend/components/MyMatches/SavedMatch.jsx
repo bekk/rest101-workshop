@@ -25,6 +25,11 @@ class SavedMatch extends React.Component {
             }
           />
         </div>
+        <div>Værmelding: Sol og sky, 19 grader</div>
+        <div className="myMatches-moreInfo">
+          <div>TV-channel: NRK</div>
+          <div>Værmelding: Sol og sky, 19 grader</div>
+        </div>
       </div>
     );
   }
