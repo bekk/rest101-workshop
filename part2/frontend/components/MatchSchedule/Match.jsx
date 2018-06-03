@@ -5,11 +5,11 @@ const Match = props => {
   const timeOfMatch = new Date(props.match.date).toTimeString().slice(0, 5);
 
   return (
-    <li className="allMatches-match">
-      <span className="allMatches-time">{timeOfMatch} </span>
+    <li className="matchScehdule-match">
+      <span className="matchScehdule-time">{timeOfMatch} </span>
       {props.homeTeam} - {props.awayTeam}
       <button
-        className="allMatches-addMatch"
+        className="matchScehdule-addMatch"
         onClick={() => props.saveMatch(props.match.name)}
       >
         Legg til

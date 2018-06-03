@@ -25,9 +25,9 @@ class MatchSchedule extends React.Component {
       });
 
     return (
-      <section className="allMatches">
+      <section className="matchScehdule">
         <h2>Alle kamper</h2>
-        <ul id="allMatches-list" className="allMatches-list">
+        <ul id="matchScehdule-list" className="matchScehdule-list">
           {matchesGroupedByDaySorted.map(day => {
             const date = day[0];
             const matchesThisDay = day[1];
