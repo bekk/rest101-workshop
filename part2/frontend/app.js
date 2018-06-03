@@ -2,27 +2,31 @@ import React from "react";
 import ReactDOM from "react-dom";
 
 import MatchSchedule from "./components/MatchSchedule";
+import SavedMatches from "./components/MyMatches";
+import MyMatches from "./components/MyMatches";
+
 import api from "./utils/api";
+import { setMatches, setTeams } from "./dataStore/staticData";
 
 class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      matches: [],
-      teams: [],
       savedMatches: [],
     };
     this.addMatchToSavedMatches = this.addMatchToSavedMatches.bind(this);
   }
+
   componentDidMount() {
     Promise.all([
       api.getAllMatches(),
       api.getAllTeams(),
       api.getAllSavedMatches(),
     ]).then(result => {
+      setMatches(result[0].matches);
+      setTeams(result[1].teams);
+
       this.setState({
-        matches: result[0].matches,
-        teams: result[1].teams,
         savedMatches: result[2].savedMatches,
       });
     });
@@ -43,12 +47,8 @@ class App extends React.Component {
     return (
       <main className="mainSection">
         <h1>VM-planlegger</h1>
-        <h2>Dine kamper</h2>
-        <MatchSchedule
-          matches={this.state.matches}
-          teams={this.state.teams}
-          saveMatch={this.addMatchToSavedMatches}
-        />
+        <MyMatches savedMatches={this.state.savedMatches} />
+        <MatchSchedule saveMatch={this.addMatchToSavedMatches} />
       </main>
     );
   }

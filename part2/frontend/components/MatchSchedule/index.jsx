@@ -1,7 +1,9 @@
 import React from "react";
-import MatchDay from "./MatchDay";
 
+import MatchDay from "./MatchDay";
 import groupBy from "./../../utils/helpers";
+
+import { getMatches, getTeams } from "./../../dataStore/staticData";
 
 class MatchSchedule extends React.Component {
   constructor(props) {
@@ -9,10 +11,11 @@ class MatchSchedule extends React.Component {
   }
 
   render() {
-    const matchesGroupedByDayAsMap = groupBy(this.props.matches, match =>
+    const allMatches = getMatches();
+    const matchesGroupedByDay = groupBy(getMatches(), match =>
       match.date.slice(0, 10),
     );
-    const matchesGroupedByDaySorted = [...matchesGroupedByDayAsMap.entries()]
+    const matchesGroupedByDaySorted = [...matchesGroupedByDay.entries()]
       .sort((a, b) => new Date(a[0]) - new Date(b[0]))
       .map(day => {
         day[1] = day[1].sort(
@@ -32,8 +35,7 @@ class MatchSchedule extends React.Component {
               <MatchDay
                 key={date}
                 date={date}
-                matches={matchesThisDay}
-                teams={this.props.teams}
+                matchesThisDay={matchesThisDay}
                 saveMatch={this.props.saveMatch}
               />
             );
