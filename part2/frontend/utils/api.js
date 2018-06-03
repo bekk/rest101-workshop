@@ -26,11 +26,18 @@ function saveMatch(matchId) {
   }).then(res => res.json());
 }
 
+function deleteMatchFromSavedMatches(matchID) {
+  return fetch("api/savedmatches/" + matchID, {
+    method: "DELETE",
+  }).then(res => res.status);
+}
+
 const api = {
   getAllTeams,
   getAllMatches,
   getMatch,
   saveMatch,
+  deleteMatchFromSavedMatches,
   getAllSavedMatches,
 };
 

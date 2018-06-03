@@ -36,7 +36,9 @@ class SavedMatch extends React.Component {
         <div className="myMatches-moreInfo">
           <div>TV-channel: NRK</div>
           <div>Værmelding: Sol og sky, 19 grader</div>
-          <button>Fjern fra dine kamper</button>
+          <button onClick={() => this.props.removeMatch(this.props.matchId)}>
+            Fjern fra dine kamper
+          </button>
         </div>
       </div>
     );

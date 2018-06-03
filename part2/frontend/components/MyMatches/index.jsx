@@ -16,7 +16,13 @@ class MyMatches extends React.Component {
         <h2>Dine kamper</h2>
         {hasSavedMatches &&
           this.props.savedMatches.map(match => {
-            return <SavedMatch key={match.matchId} matchId={match.matchId} />;
+            return (
+              <SavedMatch
+                key={match.matchId}
+                matchId={match.matchId}
+                removeMatch={this.props.removeMatch}
+              />
+            );
           })}
       </div>
     );

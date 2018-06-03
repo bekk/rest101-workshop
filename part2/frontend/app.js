@@ -6,7 +6,11 @@ import SavedMatches from "./components/MyMatches";
 import MyMatches from "./components/MyMatches";
 
 import api from "./utils/api";
-import { setMatches, setTeams } from "./dataStore/staticData";
+import {
+  setMatches,
+  setTeams,
+  deleteMatchFromSavedMatches,
+} from "./dataStore/staticData";
 
 class App extends React.Component {
   constructor() {
@@ -15,6 +19,9 @@ class App extends React.Component {
       savedMatches: [],
     };
     this.addMatchToSavedMatches = this.addMatchToSavedMatches.bind(this);
+    this.deleteMatchFromSavedMatches = this.deleteMatchFromSavedMatches.bind(
+      this,
+    );
   }
 
   componentDidMount() {
@@ -43,11 +50,24 @@ class App extends React.Component {
       .catch(err => console.error(err));
   }
 
+  deleteMatchFromSavedMatches(matchId) {
+    api.deleteMatchFromSavedMatches(matchId).then(ok => {
+      if (ok) {
+        api.getAllSavedMatches().then(res => {
+          this.setState({ savedMatches: res.savedMatches });
+        });
+      }
+    });
+  }
+
   render() {
     return (
       <main className="mainSection">
         <h1>VM-planlegger</h1>
-        <MyMatches savedMatches={this.state.savedMatches} />
+        <MyMatches
+          savedMatches={this.state.savedMatches}
+          removeMatch={this.deleteMatchFromSavedMatches}
+        />
         <MatchSchedule saveMatch={this.addMatchToSavedMatches} />
       </main>
     );
