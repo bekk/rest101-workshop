@@ -1,5 +1,6 @@
 import React from "react";
 
+import { getMatch } from "./../../utils/api";
 import MatchDay from "./MatchDay";
 import groupBy from "./../../utils/helpers";
 

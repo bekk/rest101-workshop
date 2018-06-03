@@ -3,7 +3,20 @@ import React from "react";
 import Team from "./Team";
 
 class SavedMatch extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      matchData: undefined,
+    };
+  }
+  componentWillReceiveProps(props) {
+    Promise.resolve(getMatch(props.matchId)).then(matchData => {
+      this.setState({ matchData: matchData });
+    });
+  }
+
   render() {
+    if (!this.state.matchData) return;
     return (
       <div className="myMatches-savedMatch">
         <div className="myMatches-topInfo">
@@ -29,6 +42,7 @@ class SavedMatch extends React.Component {
         <div className="myMatches-moreInfo">
           <div>TV-channel: NRK</div>
           <div>Værmelding: Sol og sky, 19 grader</div>
+          <button>Fjern fra dine kamper</button>
         </div>
       </div>
     );
