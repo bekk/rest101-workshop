@@ -8,20 +8,16 @@ class MyMatches extends React.Component {
     super(props);
   }
 
-  getDataForSavedMatches() {
-    const savedMatchesInfo = this.props.savedMatches.map(matchId =>
-      getMatches().find(match => match.name === matchId),
-    );
-    console.log(savedMatchesInfo);
-  }
-
   render() {
-    this.getDataForSavedMatches();
+    const hasSavedMatches =
+      this.props.savedMatches && this.props.savedMatches.length > 0;
     return (
       <div>
         <h2>Dine kamper</h2>
-        <SavedMatch />
-        <SavedMatch />
+        {hasSavedMatches &&
+          this.props.savedMatches.map(match => {
+            return <SavedMatch key={match.matchId} matchId={match.matchId} />;
+          })}
       </div>
     );
   }

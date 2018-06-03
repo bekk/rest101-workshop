@@ -37,10 +37,10 @@ class App extends React.Component {
       .saveMatch(matchId)
       .then(res => {
         this.setState(prevState => {
-          return { savedMatches: [...prevState.savedMatches, res.matchId] };
+          return { savedMatches: [...prevState.savedMatches, res] };
         });
       })
-      .catch(err => console.log(err));
+      .catch(err => console.error(err));
   }
 
   render() {
