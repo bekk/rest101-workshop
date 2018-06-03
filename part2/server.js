@@ -64,12 +64,14 @@ app.post("/api/savedmatches", (req, res) => {
 
   let matchId = req.body.matchId;
 
-  savedMatches.push(matchId);
+  savedMatches.push({ matchId: matchId });
   res.send(req.body);
 });
 
 app.delete("/api/savedmatches/:id", (req, res) => {
-  const indexOfMatch = savedMatches.indexOf(parseInt(req.params.id, 10));
+  const indexOfMatch = savedMatches
+    .map(e => e.matchId)
+    .indexOf(parseInt(req.params.id, 10));
   if (indexOfMatch === -1) {
     res.status(404).send();
   } else {
