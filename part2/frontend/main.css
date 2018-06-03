@@ -51,3 +51,40 @@ main {
 .allMatches-match {
   margin-bottom: 5px;
 }
+
+.myMatches-match {
+  border: 1px solid white;
+  border-radius: 4px;
+  padding-top: 4px;
+}
+
+.myMatches-topInfo {
+  text-align: center;
+}
+
+.myMatches-teamsInMatch {
+  display: flex;
+  margin: 25px 0;
+  justify-content: center;
+}
+
+.myMatches-team {
+  display: inline;
+}
+
+.myMatches-teamSeparator {
+  height: 4px;
+  width: 8px;
+  background-color: white;
+  margin: auto 20px;
+}
+
+.myMatches-flag {
+  display: block;
+  margin: 0 auto 10px;
+  height: 40px;
+  width: 40px;
+  border-width: 3px;
+  border-color: black;
+  border-radius: 100%;
+}
