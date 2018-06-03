@@ -64,8 +64,12 @@ app.post("/api/savedmatches", (req, res) => {
 
   let matchId = req.body.matchId;
 
-  savedMatches.push({ matchId: matchId });
-  res.send(req.body);
+  const newSavedMatch = {
+    matchId: matchId,
+    kontraskjaeret: false,
+  };
+  savedMatches.push(newSavedMatch);
+  res.send(newSavedMatch);
 });
 
 app.delete("/api/savedmatches/:id", (req, res) => {
@@ -81,17 +85,25 @@ app.delete("/api/savedmatches/:id", (req, res) => {
 });
 
 app.put("/api/savedmatches/:id", (req, res) => {
-  let artist = tracks.find(a => a.id === parseInt(req.params.id));
-  if (!artist) {
-    res.status(404).send("The artist with the given ID was not found");
+  const indexOfMatch = savedMatches
+    .map(e => e.matchId)
+    .indexOf(parseInt(req.params.id, 10));
+  if (indexOfMatch < 0) {
+    res
+      .status(404)
+      .send(
+        `The match with id=${
+          req.params.id
+        } was not in the list of saved matches.`,
+      );
     return;
   }
-  if (!res.body.name || res.body.name.length < 3) {
-    res.status(400).send("Name is required and should be minimum 3 characters");
+  if (!req.body) {
+    res.status(400).send("Body is required");
     return;
   }
-  artist.name = req.body.name;
-  res.send(artist);
+  savedMatches[indexOfMatch] = req.body;
+  res.send(req.body);
 });
 
 // PORT
