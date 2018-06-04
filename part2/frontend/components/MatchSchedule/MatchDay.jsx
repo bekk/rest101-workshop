@@ -13,7 +13,7 @@ export default class MatchDay extends React.Component {
     return (
       <div>
         <h3>{this.props.date}</h3>
-        <ul className="matchScehdule-daylist">
+        <ul className="matchSchedule-daylist">
           {this.props.matchesThisDay &&
             this.props.matchesThisDay.length > 0 &&
             this.props.matchesThisDay.map(match => {

@@ -1,7 +1,12 @@
-const express = require("express");
+const express = require('express');
+const fs = require('fs');
+const values = require('object.values');
 
 const app = express();
-var fs = require("fs");
+
+if (!Object.values) {
+  values.shim();
+}
 
 // Middlewares
 app.use(express.static("dist"));
@@ -16,12 +21,12 @@ var worldcupData = JSON.parse(fs.readFileSync("./worldcup2018.json", "utf8"));
 
 const groupMatches = Object.values(worldcupData.groups).reduce(
   (allMatches, group) => allMatches.concat(Object.values(group.matches)),
-  [],
+  []
 );
 
 const knockoutMatches = Object.values(worldcupData.knockout).reduce(
   (allMatches, round) => allMatches.concat(Object.values(round.matches)),
-  [],
+  []
 );
 
 let matches = [...groupMatches, ...knockoutMatches];
@@ -94,7 +99,7 @@ app.put("/api/savedmatches/:id", (req, res) => {
       .send(
         `The match with id=${
           req.params.id
-        } was not in the list of saved matches.`,
+        } was not in the list of saved matches.`
       );
     return;
   }

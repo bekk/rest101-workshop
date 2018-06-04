@@ -34,21 +34,21 @@ main {
   padding: 0;
 }
 
-.matchScehdule {
+.matchSchedule {
   display: block;
 }
 
-.matchScehdule-list {
+.matchSchedule-list {
   list-style: none;
   padding: 0;
 }
 
-.matchScehdule-daylist {
+.matchSchedule-daylist {
   list-style: none;
   padding: 0;
 }
 
-.matchScehdule-match {
+.matchSchedule-match {
   margin-bottom: 5px;
 }
 
