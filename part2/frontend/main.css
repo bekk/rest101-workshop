@@ -52,6 +52,57 @@ main {
   margin-bottom: 5px;
 }
 
+.btn {
+  display: inline-block;
+  padding: 5px 20px;
+  line-height: 1;
+  color: #ebebeb;
+  text-decoration: none;
+  cursor: pointer;
+  background: 0 0;
+  border: 1px solid #c6c8ca;
+  transition: background .2s ease-out,border .2s ease-out;
+}
+.myMatches-remove:hover,
+.btn:hover {
+  background-color: #df565b;
+  border-color: #df565b;
+}
+
+.myMatches--inner-container {
+  margin: 20px;
+  position: relative;
+}
+
+.myMatches-channel,
+.myMatches-weather{
+  display: block;
+  margin-top: 7px;
+}
+
+.myMatches-remove {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 20px;
+  line-height: 1;
+  color: #ebebeb;
+  text-decoration: none;
+  cursor: pointer;
+  background: 0 0;
+  border: 1px solid #c6c8ca;
+  border-radius: 100%;
+  transition: background .2s ease-out,border .2s ease-out;
+}
+
+.myMatches-remove::after {
+  content: 'X';
+  position: absolute;
+  top: 13px;
+  left: 0;
+  right: 0;
+}
+
 .myMatches-savedMatch {
   border: 1px solid white;
   border-radius: 4px;

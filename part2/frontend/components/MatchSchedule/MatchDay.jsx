@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import moment from 'moment';
 
 import Match from "./Match";
 import { getTeamWithId } from "./../../dataStore/staticData";
@@ -12,7 +13,7 @@ export default class MatchDay extends React.Component {
   render() {
     return (
       <div>
-        <h3>{this.props.date}</h3>
+        <h3>{moment(new Date(this.props.date)).format('MMMM Do')}</h3>
         <ul className="matchSchedule-daylist">
           {this.props.matchesThisDay &&
             this.props.matchesThisDay.length > 0 &&

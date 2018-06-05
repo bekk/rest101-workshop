@@ -1,15 +1,14 @@
 import React from "react";
 import PropTypes from "prop-types";
+import moment from 'moment';
 
 const Match = props => {
-  const timeOfMatch = new Date(props.match.date).toTimeString().slice(0, 5);
-
   return (
     <li className="matchSchedule-match">
-      <span className="matchSchedule-time">{timeOfMatch} </span>
-      {props.homeTeam} - {props.awayTeam}
+      <span className="matchSchedule-time">{moment(new Date(props.match.date)).format('HH:mm')}</span>
+      <span> {props.homeTeam} - {props.awayTeam} </span>
       <button
-        className="matchSchedule-addMatch"
+        className="matchSchedule-addMatch btn"
         onClick={() => props.saveMatch(props.match.name)}
       >
         Legg til
