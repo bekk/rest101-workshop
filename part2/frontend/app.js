@@ -19,9 +19,7 @@ class App extends React.Component {
       savedMatches: [],
     };
     this.addMatchToSavedMatches = this.addMatchToSavedMatches.bind(this);
-    this.deleteMatchFromSavedMatches = this.deleteMatchFromSavedMatches.bind(
-      this,
-    );
+    this.deleteMatchFromSavedMatches = this.deleteMatchFromSavedMatches.bind(this);
   }
 
   componentDidMount() {
