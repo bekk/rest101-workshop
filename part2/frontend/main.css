@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
   background: #252525;
   color: #ebebeb;
@@ -55,6 +59,8 @@ main {
 .myMatches-savedMatch {
   border: 1px solid white;
   border-radius: 4px;
+  display: flex;
+  flex-direction: column;
   padding-top: 4px;
   margin-bottom: 10px;
 }
@@ -71,6 +77,8 @@ main {
 
 .myMatches-team {
   display: inline;
+  text-align: center;
+  width: 160px;
 }
 
 .myMatches-teamSeparator {
@@ -78,6 +86,36 @@ main {
   width: 8px;
   background-color: white;
   margin: auto 20px;
+}
+
+.myMatches-moreInfo-toggle {
+  height: 20px;
+  width: 20px;
+  margin: 0 auto;
+  border: 0;
+  border-left: 5px solid white;
+  border-bottom: 5px solid white;
+  transform: rotate(-45deg);
+  background-color: transparent;
+  transition: all 0.2s ease-out;
+}
+
+.myMatches-moreInfo-toggle--open {
+  transform: rotate(135deg);
+}
+
+.myMatches-moreInfo-wrapper {
+  overflow: hidden;
+  transition: all 0.3s ease-out;
+}
+
+.myMatches-moreInfo-wrapper--closed {
+  height: 0;
+}
+
+.myMatches-moreInfo {
+  padding: 10px;
+  transition: all 0.3s ease-out;
 }
 
 .myMatches-flag {
