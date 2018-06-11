@@ -1,10 +1,10 @@
-import React from "react";
+import React from 'react';
 
-import { getMatch } from "./../../utils/api";
-import MatchDay from "./MatchDay";
-import groupBy from "./../../utils/helpers";
+import { getMatch } from './../../utils/api';
+import MatchDay from './MatchDay';
+import groupBy from './../../utils/helpers';
 
-import { getMatches, getTeams } from "./../../dataStore/staticData";
+import { getMatches, getTeams } from './../../dataStore/staticData';
 
 class MatchSchedule extends React.Component {
   constructor(props) {
@@ -13,11 +13,15 @@ class MatchSchedule extends React.Component {
 
   render() {
     const allMatches = getMatches();
-    const matchesGroupedByDay = groupBy(getMatches(), match => match.date.slice(0, 10));
+    const matchesGroupedByDay = groupBy(getMatches(), match =>
+      match.date.slice(0, 10)
+    );
     const matchesGroupedByDaySorted = [...matchesGroupedByDay.entries()]
       .sort((a, b) => new Date(a[0]) - new Date(b[0]))
       .map(day => {
-        day[1] = day[1].sort((matchA, matchB) => new Date(matchA.date) - new Date(matchB.date));
+        day[1] = day[1].sort(
+          (matchA, matchB) => new Date(matchA.date) - new Date(matchB.date)
+        );
         return day;
       });
 

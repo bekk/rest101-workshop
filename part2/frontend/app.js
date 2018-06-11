@@ -1,38 +1,40 @@
-import React from "react";
-import ReactDOM from "react-dom";
+import React from 'react';
+import ReactDOM from 'react-dom';
 
-import MatchSchedule from "./components/MatchSchedule";
-import SavedMatches from "./components/MyMatches";
-import MyMatches from "./components/MyMatches";
+import MatchSchedule from './components/MatchSchedule';
+import SavedMatches from './components/MyMatches';
+import MyMatches from './components/MyMatches';
 
-import api from "./utils/api";
+import api from './utils/api';
 import {
   setMatches,
   setTeams,
-  deleteMatchFromSavedMatches,
-} from "./dataStore/staticData";
+  deleteMatchFromSavedMatches
+} from './dataStore/staticData';
 
 class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      savedMatches: [],
+      savedMatches: []
     };
     this.addMatchToSavedMatches = this.addMatchToSavedMatches.bind(this);
-    this.deleteMatchFromSavedMatches = this.deleteMatchFromSavedMatches.bind(this);
+    this.deleteMatchFromSavedMatches = this.deleteMatchFromSavedMatches.bind(
+      this
+    );
   }
 
   componentDidMount() {
     Promise.all([
       api.getAllMatches(),
       api.getAllTeams(),
-      api.getAllSavedMatches(),
+      api.getAllSavedMatches()
     ]).then(result => {
       setMatches(result[0].matches);
       setTeams(result[1].teams);
 
       this.setState({
-        savedMatches: result[2].savedMatches,
+        savedMatches: result[2].savedMatches
       });
     });
   }
@@ -72,4 +74,4 @@ class App extends React.Component {
   }
 }
 
-ReactDOM.render(<App />, document.getElementById("app"));
+ReactDOM.render(<App />, document.getElementById('app'));
