@@ -14,11 +14,16 @@ function getAllSavedMatches() {
   return fetch("api/savedmatches").then(res => res.json());
 }
 
+function fetchChannel(channelId) {
+  return fetch(`api/channels/${channelId}`).then(res => res.json());
+}
+
 function saveMatch(matchId) {
   return fetch("api/savedmatches", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
+      "Accept": "application/json"
     },
     body: JSON.stringify({
       matchId: matchId,
@@ -39,6 +44,7 @@ const api = {
   saveMatch,
   deleteMatchFromSavedMatches,
   getAllSavedMatches,
+  fetchChannel,
 };
 
 export default api;

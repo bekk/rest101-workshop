@@ -20,14 +20,20 @@ app.get("/", (req, res) => {
 var worldcupData = JSON.parse(fs.readFileSync("./worldcup2018.json", "utf8"));
 
 const groupMatches = Object.values(worldcupData.groups).reduce(
-  (allMatches, group) => allMatches.concat(Object.values(group.matches)),
+  (allMatches, group) => allMatches.concat(Object.values(group.matches).map((match) => {
+    return Object.assign({matchCategory: group.name}, match);
+  })),
   []
 );
 
 const knockoutMatches = Object.values(worldcupData.knockout).reduce(
-  (allMatches, round) => allMatches.concat(Object.values(round.matches)),
+  (allMatches, round) => allMatches.concat(Object.values(round.matches).map((match) => {
+    return Object.assign({matchCategory: round.name}, match);
+  })),
   []
 );
+
+const channels = Object.values(worldcupData.tvchannels);
 
 let matches = [...groupMatches, ...knockoutMatches];
 
@@ -39,9 +45,34 @@ app.get("/api/teams", (req, res) => {
   });
 });
 
+const decorateMatchWithLinks = (match) => {
+  return Object.assign({
+    _links: {
+      saveMatch: {
+        href: `/api/savedmatches/${match.name}`,
+        method: 'POST',
+        contentType: 'application/json',
+        accept: 'application/json'
+      },
+      deleteMatch: {
+        href: `/api/savedmatches/${match.name}`,
+        method: 'DELETE',
+        contentType: 'application/json',
+        accept: 'application/json'
+      },
+      information: {
+        href: `/api/matches/${match.name}`,
+        method: 'GET',
+        contentType: 'application/json',
+        accept: 'application/json'
+      }
+    }
+  }, match);
+};
+
 app.get("/api/matches", (req, res) => {
   res.send({
-    matches: matches,
+    matches: matches.map(decorateMatchWithLinks),
   });
 });
 
@@ -60,10 +91,32 @@ app.get("/api/savedmatches", (req, res) => {
   });
 });
 
+const APPLICATION_JSON_V1 = 'application/vnd.fotballfest.v1+json';
+
+app.get('/api/channels/:id', (req, res) => {
+  const channel = channels.filter(c => {
+    return c.id == req.params.id;
+  })[0];
+  if (req.header('Accept') === APPLICATION_JSON_V1) {
+    res.send({name: channel.name, icon: channel.icon});
+  } else {
+    res.send(channel);
+  }
+
+});
+
+const matchAlreadyExists = (matchId) => {
+  return savedMatches.filter(match => match.matchId === matchId).length > 0;
+};
+
 app.post("/api/savedmatches", (req, res) => {
-  // Må håndtere slik at kamp ikke kan lagres to ganger
   if (!req.body.matchId) {
     res.status(400).send("Body with a matchId is required in request");
+    return;
+  }
+
+  if (matchAlreadyExists(req.body.matchId)) {
+    res.status(400).send("Match already exists");
     return;
   }
 

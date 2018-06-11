@@ -82,6 +82,11 @@ main {
   margin-top: 7px;
 }
 
+.myMatches-channel {
+  height: 30px;
+  width: auto;
+}
+
 .myMatches-remove {
   position: absolute;
   top: 0;

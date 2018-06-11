@@ -3,32 +3,41 @@ import moment from 'moment';
 import api from "./../../utils/api";
 import { getTeamWithId } from "./../../dataStore/staticData";
 import Team from "./Team";
+import { norwegianRoundFromEnglish } from './texts';
+
+const UNKNOWN_TEAM = {
+    name: 'Ukjent',
+};
 
 class SavedMatch extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            matchData: undefined,
+            matchData: {},
+            channel: {}
         };
         if (props.matchId) {
             api.getMatch(props.matchId).then(matchData => {
                 this.setState({matchData: matchData});
+
+                api.fetchChannel(matchData.channels[matchData.channels.length - 1]).then(channel => {
+                    this.setState({channel: channel})
+                });
             });
         }
     }
 
     render() {
         if (!this.state.matchData) return <div>Loading...</div>;
-        const homeTeam = getTeamWithId(this.state.matchData.home_team);
-        const awayTeam = getTeamWithId(this.state.matchData.away_team);
-        console.log(this.state.matchData);
+        const homeTeam = getTeamWithId(this.state.matchData.home_team) || UNKNOWN_TEAM;
+        const awayTeam = getTeamWithId(this.state.matchData.away_team) || UNKNOWN_TEAM;
         return (
             <div className="myMatches-savedMatch">
                 <div className="myMatches--inner-container">
                     <button className="myMatches-remove" onClick={() => this.props.removeMatch(this.props.matchId)}/>
                     <div className="myMatches-topInfo">
-                        <div>{moment(new Date(this.state.matchData.date)).format('HH:mm MMMM Do')}</div>
-                        <div>Gruppespill</div>
+											  <div>{moment(new Date(this.state.matchData.date)).format('HH:mm MMMM Do')}</div>
+                        <div>{norwegianRoundFromEnglish(this.state.matchData.matchCategory)}</div>
                     </div>
                     <div className="myMatches-teamsInMatch">
                         <Team teamName={homeTeam.name} flagUrl={homeTeam.flag}/>
@@ -36,7 +45,7 @@ class SavedMatch extends React.Component {
                         <Team teamName={awayTeam.name} flagUrl={awayTeam.flag}/>
                     </div>
                     <span className="myMatches-weather">Værmelding: Sol og sky, 19 grader</span>
-                    <span className="myMatches-channel">Vises på: NRK</span>
+                    <img className="myMatches-channel" src={this.state.channel.icon}/>
                 </div>
             </div>
         );
