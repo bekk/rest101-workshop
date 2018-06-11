@@ -20,12 +20,16 @@ app.get("/", (req, res) => {
 var worldcupData = JSON.parse(fs.readFileSync("./worldcup2018.json", "utf8"));
 
 const groupMatches = Object.values(worldcupData.groups).reduce(
-  (allMatches, group) => allMatches.concat(Object.values(group.matches)),
+  (allMatches, group) => allMatches.concat(Object.values(group.matches).map((match) => {
+    return Object.assign({matchCategory: group.name}, match);
+  })),
   []
 );
 
 const knockoutMatches = Object.values(worldcupData.knockout).reduce(
-  (allMatches, round) => allMatches.concat(Object.values(round.matches)),
+  (allMatches, round) => allMatches.concat(Object.values(round.matches).map((match) => {
+    return Object.assign({matchCategory: round.name}, match);
+  })),
   []
 );
 
