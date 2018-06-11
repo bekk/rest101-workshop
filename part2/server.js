@@ -45,9 +45,34 @@ app.get("/api/teams", (req, res) => {
   });
 });
 
+const decorateMatchWithLinks = (match) => {
+  return Object.assign({
+    _links: {
+      saveMatch: {
+        href: `/api/savedmatches/${match.name}`,
+        method: 'POST',
+        contentType: 'application/json',
+        accept: 'application/json'
+      },
+      deleteMatch: {
+        href: `/api/savedmatches/${match.name}`,
+        method: 'DELETE',
+        contentType: 'application/json',
+        accept: 'application/json'
+      },
+      information: {
+        href: `/api/matches/${match.name}`,
+        method: 'GET',
+        contentType: 'application/json',
+        accept: 'application/json'
+      }
+    }
+  }, match);
+};
+
 app.get("/api/matches", (req, res) => {
   res.send({
-    matches: matches,
+    matches: matches.map(decorateMatchWithLinks),
   });
 });
 
