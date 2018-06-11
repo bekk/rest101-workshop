@@ -13,11 +13,16 @@ class SavedMatch extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            matchData: undefined,
+            matchData: {},
+            channel: {}
         };
         if (props.matchId) {
             api.getMatch(props.matchId).then(matchData => {
                 this.setState({matchData: matchData});
+
+                api.fetchChannel(matchData.channels[matchData.channels.length - 1]).then(channel => {
+                    this.setState({channel: channel})
+                });
             });
         }
     }
@@ -40,7 +45,7 @@ class SavedMatch extends React.Component {
                         <Team teamName={awayTeam.name} flagUrl={awayTeam.flag}/>
                     </div>
                     <span className="myMatches-weather">Værmelding: Sol og sky, 19 grader</span>
-                    <span className="myMatches-channel">Vises på: UKJENT</span>
+                    <img className="myMatches-channel" src={this.state.channel.icon}/>
                 </div>
             </div>
         );

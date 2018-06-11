@@ -33,6 +33,8 @@ const knockoutMatches = Object.values(worldcupData.knockout).reduce(
   []
 );
 
+const channels = Object.values(worldcupData.tvchannels);
+
 let matches = [...groupMatches, ...knockoutMatches];
 
 let savedMatches = [];
@@ -62,6 +64,13 @@ app.get("/api/savedmatches", (req, res) => {
   res.send({
     savedMatches: savedMatches,
   });
+});
+
+app.get('/api/channels/:id', (req, res) => {
+  const channel = channels.filter(c => {
+    return c.id == req.params.id;
+  })[0];
+  res.send(channel);
 });
 
 app.post("/api/savedmatches", (req, res) => {
