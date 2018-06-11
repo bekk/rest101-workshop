@@ -6,7 +6,8 @@
   "scripts": {
     "backend": "nodemon server.js",
     "frontend": "parcel watch frontend/index.html",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prettier": "prettier --single-quote --write **/*.{js,jsx,css}"
   },
   "author": "",
   "license": "ISC",
@@ -22,6 +23,7 @@
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
     "nodemon": "^1.17.5",
-    "object.values": "^1.0.4"
+    "object.values": "^1.0.4",
+    "prettier": "1.13.5"
   }
 }

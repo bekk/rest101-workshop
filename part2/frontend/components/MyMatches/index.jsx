@@ -1,36 +1,37 @@
-import React from "react";
+import React from 'react';
 
-import SavedMatch from "./SavedMatch";
-import { getMatches } from "./../../dataStore/staticData";
+import SavedMatch from './SavedMatch';
+import { getMatches } from './../../dataStore/staticData';
 
 class MyMatches extends React.Component {
-    constructor(props) {
-        super(props);
+  constructor(props) {
+    super(props);
+  }
+
+  render() {
+    const hasSavedMatches =
+      this.props.savedMatches && this.props.savedMatches.length > 0;
+    function noSavedMatches() {
+      return <span>Du har ikke lagt til noen kamper enda.</span>;
     }
 
-    render() {
-        const hasSavedMatches = this.props.savedMatches && this.props.savedMatches.length > 0;
-        function noSavedMatches() {
-            return <span>Du har ikke lagt til noen kamper enda.</span>;
-        }
-
-        return (
-            <div>
-                <h2>Dine kamper</h2>
-                {hasSavedMatches &&
-                this.props.savedMatches.map(match => {
-                    return (
-                        <SavedMatch
-                            key={match.matchId}
-                            matchId={match.matchId}
-                            removeMatch={this.props.removeMatch}
-                        />
-                    );
-                })}
-                {!hasSavedMatches && noSavedMatches()}
-            </div>
-        );
-    }
+    return (
+      <section className="savedMatches">
+        <h2>Dine kamper</h2>
+        {hasSavedMatches &&
+          this.props.savedMatches.map(match => {
+            return (
+              <SavedMatch
+                key={match.matchId}
+                matchId={match.matchId}
+                removeMatch={this.props.removeMatch}
+              />
+            );
+          })}
+        {!hasSavedMatches && noSavedMatches()}
+      </section>
+    );
+  }
 }
 
 // Print ut data, klokkeslett for kampen

@@ -1,55 +1,79 @@
-import React from "react";
-
-import api from "./../../utils/api";
-import { getTeamWithId } from "./../../dataStore/staticData";
-import Team from "./Team";
+import React from 'react';
+import moment from 'moment';
+import api from './../../utils/api';
+import { getTeamWithId } from './../../dataStore/staticData';
+import Team from './Team';
 import { norwegianRoundFromEnglish } from './texts';
 
 const UNKNOWN_TEAM = {
-    name: 'Ukjent',
+  name: 'Ukjent'
 };
 
 class SavedMatch extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            matchData: {},
-            channel: {}
-        };
-        if (props.matchId) {
-            api.getMatch(props.matchId).then(matchData => {
-                this.setState({matchData: matchData});
+  constructor(props) {
+    super(props);
+    this.state = {
+      matchData: {},
+      channel: {}
+    };
+    if (props.matchId) {
+      api.getMatch(props.matchId).then(matchData => {
+        this.setState({ matchData: matchData });
 
-                api.fetchChannel(matchData.channels[matchData.channels.length - 1]).then(channel => {
-                    this.setState({channel: channel})
-                });
-            });
-        }
+        api
+          .fetchChannel(matchData.channels[matchData.channels.length - 1])
+          .then(channel => {
+            this.setState({ channel: channel });
+          });
+      });
     }
+  }
 
-    render() {
-        if (!this.state.matchData) return <div>Loading...</div>;
-        const homeTeam = getTeamWithId(this.state.matchData.home_team) || UNKNOWN_TEAM;
-        const awayTeam = getTeamWithId(this.state.matchData.away_team) || UNKNOWN_TEAM;
-        return (
-            <div className="myMatches-savedMatch">
-                <div className="myMatches--inner-container">
-                    <button className="myMatches-remove" onClick={() => this.props.removeMatch(this.props.matchId)}/>
-                    <div className="myMatches-topInfo">
-                        <div>{new Date(this.state.matchData.date).toLocaleDateString()}</div>
-                        <div>{norwegianRoundFromEnglish(this.state.matchData.matchCategory)}</div>
-                    </div>
-                    <div className="myMatches-teamsInMatch">
-                        <Team teamName={homeTeam.name} flagUrl={homeTeam.flag}/>
-                        <div className="myMatches-teamSeparator"/>
-                        <Team teamName={awayTeam.name} flagUrl={awayTeam.flag}/>
-                    </div>
-                    <span className="myMatches-weather">Værmelding: Sol og sky, 19 grader</span>
-                    <img className="myMatches-channel" src={this.state.channel.icon}/>
-                </div>
+  render() {
+    if (!this.state.matchData) return <div>Loading...</div>;
+    const homeTeam =
+      getTeamWithId(this.state.matchData.home_team) || UNKNOWN_TEAM;
+    const awayTeam =
+      getTeamWithId(this.state.matchData.away_team) || UNKNOWN_TEAM;
+    return (
+      <div className="myMatches-savedMatch">
+        <div className="myMatches--inner-container">
+          <button
+            className="myMatches-remove"
+            onClick={() => this.props.removeMatch(this.props.matchId)}
+          />
+          <div className="myMatches-topInfo">
+            <div>
+              {moment(new Date(this.state.matchData.date)).format(
+                'HH:mm MMMM Do'
+              )}
             </div>
-        );
-    }
+            <div>
+              {norwegianRoundFromEnglish(this.state.matchData.matchCategory)}
+            </div>
+          </div>
+          <div className="myMatches-teamsInMatch">
+            <Team teamName={homeTeam.name} flagUrl={homeTeam.flag} />
+            <div className="myMatches-teamSeparator" />
+            <Team teamName={awayTeam.name} flagUrl={awayTeam.flag} />
+          </div>
+          <div className="row">
+            <div className="col-sm">
+              <img
+                className="myMatches-channel"
+                src={this.state.channel.icon}
+              />
+            </div>
+            <div className="col-sm">
+              <span className="myMatches-weather">
+                Værmelding: Sol og sky, 19 grader
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
 }
 
 export default SavedMatch;
