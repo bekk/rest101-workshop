@@ -1,5 +1,5 @@
 import React from "react";
-
+import moment from 'moment';
 import api from "./../../utils/api";
 import { getTeamWithId } from "./../../dataStore/staticData";
 import Team from "./Team";
@@ -21,12 +21,13 @@ class SavedMatch extends React.Component {
         if (!this.state.matchData) return <div>Loading...</div>;
         const homeTeam = getTeamWithId(this.state.matchData.home_team);
         const awayTeam = getTeamWithId(this.state.matchData.away_team);
+        console.log(this.state.matchData);
         return (
             <div className="myMatches-savedMatch">
                 <div className="myMatches--inner-container">
                     <button className="myMatches-remove" onClick={() => this.props.removeMatch(this.props.matchId)}/>
                     <div className="myMatches-topInfo">
-                        <div>{new Date(this.state.matchData.date).toLocaleDateString()}</div>
+                        <div>{moment(new Date(this.state.matchData.date)).format('HH:mm MMMM Do')}</div>
                         <div>Gruppespill</div>
                     </div>
                     <div className="myMatches-teamsInMatch">

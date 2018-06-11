@@ -15,7 +15,7 @@ class MyMatches extends React.Component {
         }
 
         return (
-            <div>
+            <section className="savedMatches">
                 <h2>Dine kamper</h2>
                 {hasSavedMatches &&
                 this.props.savedMatches.map(match => {
@@ -28,7 +28,7 @@ class MyMatches extends React.Component {
                     );
                 })}
                 {!hasSavedMatches && noSavedMatches()}
-            </div>
+            </section>
         );
     }
 }

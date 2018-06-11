@@ -16,7 +16,9 @@ main {
   display: flex;
   flex-direction: column;
 }
-
+#app {
+  margin-top:50px;
+}
 .mainSection {
   width: 90%;
   padding: 0 5%;
@@ -25,7 +27,7 @@ main {
 }
 
 .savedMatches {
-  display: block;
+  margin: 30px 0 40px 0;
 }
 
 .savedMatches-list {
@@ -49,7 +51,7 @@ main {
 }
 
 .matchSchedule-match {
-  margin-bottom: 5px;
+  margin-bottom: 15px;
 }
 
 .btn {
@@ -139,4 +141,23 @@ main {
   border-width: 3px;
   border-color: black;
   border-radius: 100%;
+}
+
+.matchSchedule-match-flag {
+  font-size:20px;
+}
+
+.matchSchedule-match-time {
+  font-size:20px;
+  line-height:60px;
+}
+
+.matchSchedule-match-name {
+  font-size:20px;
+  margin-left:5px;
+}
+
+.matchSchedule-daylist-date {
+  border-bottom: 2px solid #df565b;
+  margin-bottom: 10px;
 }
