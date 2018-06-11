@@ -91,11 +91,18 @@ app.get("/api/savedmatches", (req, res) => {
   });
 });
 
+const APPLICATION_JSON_V1 = 'application/vnd.fotballfest.v1+json';
+
 app.get('/api/channels/:id', (req, res) => {
   const channel = channels.filter(c => {
     return c.id == req.params.id;
   })[0];
-  res.send(channel);
+  if (req.header('Accept') === APPLICATION_JSON_V1) {
+    res.send({name: channel.name, icon: channel.icon});
+  } else {
+    res.send(channel);
+  }
+
 });
 
 const matchAlreadyExists = (matchId) => {
