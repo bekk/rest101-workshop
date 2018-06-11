@@ -9,5 +9,4 @@ cd rest101-workshop/part2
 **Installer alle avhengigheter**
 ```
 npm install
-```
-
+``
