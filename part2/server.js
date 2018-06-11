@@ -73,10 +73,18 @@ app.get('/api/channels/:id', (req, res) => {
   res.send(channel);
 });
 
+const matchAlreadyExists = (matchId) => {
+  return savedMatches.filter(match => match.matchId === matchId).length > 0;
+};
+
 app.post("/api/savedmatches", (req, res) => {
-  // Må håndtere slik at kamp ikke kan lagres to ganger
   if (!req.body.matchId) {
     res.status(400).send("Body with a matchId is required in request");
+    return;
+  }
+
+  if (matchAlreadyExists(req.body.matchId)) {
+    res.status(400).send("Match already exists");
     return;
   }
 
