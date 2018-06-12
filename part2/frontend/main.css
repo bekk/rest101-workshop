@@ -82,13 +82,19 @@ main {
   margin-top: 7px;
 }
 
+.myMatches-channel {
+  height: 30px;
+  margin-top: 20px;
+  width: auto;
+}
+
 .myMatches-weather {
   text-align: right;
 }
 
-.myMatches-channel {
-  height: 30px;
-  width: auto;
+.myMatches-weather-symbol {
+  width: 50px;
+  height: 50px;
 }
 
 .myMatches-remove {

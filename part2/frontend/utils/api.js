@@ -18,6 +18,10 @@ function fetchChannel(channelId) {
   return fetch(`api/channels/${channelId}`).then(res => res.json());
 }
 
+function fetchWeather(time) {
+  return fetch(`api/weather?time=${encodeURIComponent(time)}`).then(res => res.json());
+}
+
 function saveMatch(matchId) {
   return fetch("api/savedmatches", {
     method: "POST",
@@ -45,6 +49,7 @@ const api = {
   deleteMatchFromSavedMatches,
   getAllSavedMatches,
   fetchChannel,
+  fetchWeather
 };
 
 export default api;

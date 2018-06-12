@@ -14,7 +14,8 @@ class SavedMatch extends React.Component {
     super(props);
     this.state = {
       matchData: {},
-      channel: {}
+      channel: {},
+      weather: {}
     };
     if (props.matchId) {
       api.getMatch(props.matchId).then(matchData => {
@@ -25,6 +26,10 @@ class SavedMatch extends React.Component {
           .then(channel => {
             this.setState({ channel: channel });
           });
+        
+        api.fetchWeather(matchData.date).then(weather => {
+          this.setState({weather: weather});
+        });
       });
     }
   }
@@ -66,7 +71,15 @@ class SavedMatch extends React.Component {
             </div>
             <div className="col-sm">
               <span className="myMatches-weather">
-                Værmelding: Sol og sky, 19 grader
+                <img 
+                  src={"https://fotballfest-test.herokuapp.com" + this.state.weather.symbolUrl}
+                  className="myMatches-weather-symbol"  
+                />
+                <span className="myMatches-weather-info">
+                  {this.state.weather.location && this.state.weather.location.temperature.value}
+                  &deg;C
+                  {this.state.weather.rain && " / " + this.state.weather.rain}
+                </span>
               </span>
             </div>
           </div>
