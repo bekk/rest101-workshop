@@ -9,7 +9,6 @@ import api from './utils/api';
 import {
   setMatches,
   setTeams,
-  deleteMatchFromSavedMatches
 } from './dataStore/staticData';
 
 class App extends React.Component {

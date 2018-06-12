@@ -1,6 +1,7 @@
 const express = require('express');
 const fs = require('fs');
 const values = require('object.values');
+const fetch = require('node-fetch');
 
 const app = express();
 
@@ -102,7 +103,17 @@ app.get('/api/channels/:id', (req, res) => {
   } else {
     res.send(channel);
   }
+});
 
+app.get('/api/weather/', (req, res) => {
+  if (!req.query.time) {
+    res.status(504).send();
+    return;
+  }
+  const weatherUrl = "https://fotballfest-test.herokuapp.com/api/weather?time=" + encodeURIComponent(req.query.time);
+  fetch(weatherUrl).then(res => res.json()).then(weather => {
+    res.send(weather);
+  });
 });
 
 const matchAlreadyExists = (matchId) => {
