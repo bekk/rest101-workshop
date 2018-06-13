@@ -71,10 +71,13 @@ class SavedMatch extends React.Component {
             </div>
             <div className="col-sm">
               <span className="myMatches-weather">
-                <img 
-                  src={"https://fotballfest-test.herokuapp.com" + this.state.weather.symbolUrl}
-                  className="myMatches-weather-symbol"  
-                />
+                {
+                    this.state.weather.symbolUrl &&
+                    <img
+                        src={"https://fotballfest-test.herokuapp.com" + this.state.weather.symbolUrl}
+                        className="myMatches-weather-symbol"
+                    />
+                }
                 <span className="myMatches-weather-info">
                   {this.state.weather.location && this.state.weather.location.temperature.value}
                   &deg;C

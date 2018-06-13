@@ -107,7 +107,7 @@ app.get('/api/channels/:id', (req, res) => {
 
 app.get('/api/weather/', (req, res) => {
   if (!req.query.time) {
-    res.status(504).send();
+    res.status(400).send();
     return;
   }
   const weatherUrl = "https://fotballfest-test.herokuapp.com/api/weather?time=" + encodeURIComponent(req.query.time);

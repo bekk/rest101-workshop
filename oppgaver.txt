@@ -1,0 +1,38 @@
+0) 
+POSTMAN til å hente kamper
+
+1a): 
+Gjør GET-kallene som er nødvendig for å få siden til å fungere. 
+Prerequisite: Klienten har dummydata for kamper hardkodet.
+
+1b)
+Legg til kamp (POST)
+
+1c) 
+Slett kamp (DELETE)
+
+2: 
+Fra statisk json-fil til server-fetch. 
+
+Legg opp til at man skal hente vær fra klienten. Det går kadundas (forhåpentligvis). 
+CSP?
+
+3: 
+Skru av heroku-serveren. 
+
+4: 
+Feilhåndtering 
+
+4: 
+HATEOAS/Domene vs DTO
+Generer lenker på backend. Nå trenger de ikke lengre id. 
+
+5:
+Versjonering
+Versjoner API-et ved å fjerne ID.
+
+X: Deltakerliste
+Cookies
+(PUT, GET)
+
+	
