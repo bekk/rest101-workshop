@@ -1,21 +1,5 @@
 function getAllTeams() {
-	const dummyTeams = {
-		"teams": [
-			{
-				"id": 3,
-				"name": "Egypt",
-				"flag": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Flag_of_Egypt.svg/900px-Flag_of_Egypt.png",
-				"emojiString": "🇪🇬"
-			},
-			{
-				"id": 4,
-				"name": "Uruguay",
-				"flag": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Flag_of_Uruguay.svg/900px-Flag_of_Uruguay.png",
-				"emojiString": "🇺🇾"
-			},
-		]
-	};
-	return Promise.resolve(dummyTeams);
+	return fetch("api/teams").then(res => res.json());
 }
 
 function getAllMatches() {
@@ -27,7 +11,7 @@ function getAllMatches() {
 			"home_team": 3,
 			"away_team": 4,
 			"date": "2018-06-15T17:00:00+05:00",
-			"channels": [3, 6, 13],
+			"channels": [13],
 			"finished": false,
 		}]
 	};
