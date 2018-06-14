@@ -37,6 +37,9 @@ app.post("/api/savedmatches", (req, res) => {
 
 Underveis i utviklingen kan det være nyttig å bruke en HTTP-klient for å teste API-et ditt før du drar i gang med frontend. Eksempelvis [POSTMAN](https://www.getpostman.com/apps)
 
+Når API-et er ferdig og du har testet med POSTMAN, kan du begynne på frontend-biten. I frontend/utils/api.js finner du en del metoder som forventes å fylles ut i løpet av denne workshopen. 
+
+Fyll ut metoden saveMatch() slik at kampen blir lagret. 
 
 Definition of done: Kamper du har lagt til blir synlig i toppen av skjermen. Kamper du har lagret blir også værende dersom du refresher siden. Noen justeringer i frontenden går helt fint der for å få backend og frontend til å henge sammen. 
 
@@ -44,7 +47,7 @@ Definition of done: Kamper du har lagt til blir synlig i toppen av skjermen. Kam
 Dersom alt har gått bra nå kommer dine lagrede kamper i et panel øverst på siden. 
 Denne har en X i høyre hjørne. 
 
-Fyll inn ressursen under, slik at kamper blir fjernet i det du sletter de. 
+Fyll inn ressursen under, slik at kamper kan bli fjernet i det du sletter de. 
 
 ```
 app.delete("/api/savedmatches/:id", (req,res) => {
@@ -52,12 +55,4 @@ app.delete("/api/savedmatches/:id", (req,res) => {
 }
 ```
 
-
-
-
-
-
-
-
-
-
+Fyll inn metoden deleteMatch() i frontend/utils/api.js, slik at kamper forsvinner når du trykker de bort. 
