@@ -12,11 +12,17 @@ const Match = props => {
           </span>
         </div>
         <div className="col-sm">
+          <span className={`matchSchedule-match-goals ${props.homeGoals > props.awayGoals ? 'matchSchedule-match-winner' : ''}`}>
+            {props.homeGoals}
+          </span>
           <span className="matchSchedule-match-flag">
             {props.homeTeamEmoji}
           </span>
           <span className="matchSchedule-match-name">{props.homeTeam}</span>
           <br />
+          <span className={`matchSchedule-match-goals ${props.homeGoals < props.awayGoals ? 'matchSchedule-match-winner' : ''}`}>
+            {props.awayGoals}
+          </span>
           <span className="matchSchedule-match-flag">
             {props.awayTeamEmoji}
           </span>
@@ -41,7 +47,9 @@ Match.propTypes = {
   match: PropTypes.object,
   homeTeam: PropTypes.string,
   homeTeamEmoji: PropTypes.string,
+  homeGoals: PropTypes.string,
   awayTeam: PropTypes.string,
   awayTeamEmoji: PropTypes.string,
+  awayGoals: PropTypes.string,
   saveMatch: PropTypes.func
 };

@@ -162,6 +162,15 @@ main {
   font-size: 20px;
 }
 
+.matchSchedule-match-goals {
+  margin-right: 10px;
+  font-size: 20px;
+}
+
+.matchSchedule-match-winner {
+  color: lawngreen;
+}
+
 .matchSchedule-match-time {
   font-size: 20px;
   line-height: 60px;

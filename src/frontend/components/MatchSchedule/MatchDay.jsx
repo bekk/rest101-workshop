@@ -26,15 +26,18 @@ export default class MatchDay extends React.Component {
               const homeTeamEmoji = homeTeam ? homeTeam.emojiString : '';
               const awayTeamName = awayTeam ? awayTeam.name : '?';
               const awayTeamEmoji = awayTeam ? awayTeam.emojiString : '';
-
+              const homeGoals = match.home_result ? match.home_result : '';
+              const awayGoals = match.away_result ? match.away_result : '';
               return (
                 <Match
                   key={match.name}
                   match={match}
                   homeTeam={homeTeamName}
                   homeTeamEmoji={homeTeamEmoji}
+                  homeGoals={homeGoals}
                   awayTeam={awayTeamName}
                   awayTeamEmoji={awayTeamEmoji}
+                  awayGoals={awayGoals}
                   saveMatch={this.props.saveMatch}
                 />
               );
