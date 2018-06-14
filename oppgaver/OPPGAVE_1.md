@@ -44,6 +44,12 @@ Fyll ut metoden saveMatch() slik at kampen blir lagret.
 Definition of done: Kamper du har lagt til blir synlig i toppen av skjermen. Kamper du har lagret blir også værende dersom du refresher siden. Noen justeringer i frontenden går helt fint der for å få backend og frontend til å henge sammen. 
 
 ## c)
+For å vise en lagret kamp må man hente informasjon om en spesifikk kamp. 
+
+Frontenden forventer en rest-ressurs som svarer på GET - "/api/matches/<ID>" hvor <ID> tilsvarer match.name i JSON-filen. 
+
+
+## d)
 Dersom alt har gått bra nå kommer dine lagrede kamper i et panel øverst på siden. 
 Denne har en X i høyre hjørne. 
 

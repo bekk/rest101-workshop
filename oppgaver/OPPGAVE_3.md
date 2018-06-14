@@ -1,3 +1,5 @@
+#TODO: Flytt til keynote/presentasjon: 
+
 Oppgave 3: Feilhåndtering
 
 Så lenge man gjør et nettverkskall for å hente noe som helst, så kan i prinsippet hva som helst skje.
