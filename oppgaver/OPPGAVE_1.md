@@ -58,7 +58,7 @@ Definition of done: Kamper du har lagt til blir synlig i toppen av skjermen. Kam
 ## c)
 For å vise en lagret kamp må man hente informasjon om en spesifikk kamp. 
 
-Frontenden forventer en rest-ressurs som svarer på GET - "/api/matches/<ID>" hvor <ID> tilsvarer match.name i JSON-filen. 
+Frontenden forventer en rest-ressurs som svarer på GET - "/api/matches/\<ID\>" hvor <ID> tilsvarer match.name i JSON-filen. 
 
 
 ## d)
