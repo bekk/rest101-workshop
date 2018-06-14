@@ -50,6 +50,7 @@ app.get("/api/matches", (req, res) => {
   res.status(501).send({"message": "Not implemented yet"});
 });
 
+// Hint: Bruk req.params.id for å hente ut id.
 app.get("/api/matches/:id", (req, res) => {
   res.status(501).send({"message": "Not implemented yet"});
 });
