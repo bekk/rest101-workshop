@@ -1,7 +1,5 @@
 # REST 101
 
-## Getting started
-
 ## Steg 1: Har du alt installert?
 
 Åpne en terminal. Kjør følgende kommandoer (Uten $ i start av kommando. Dette gjelder alle kommandoer i denne teksten)..
