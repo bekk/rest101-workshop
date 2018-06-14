@@ -23,9 +23,6 @@ app.get("/api/matches", (req, res) => {
 });
 ``` 
 
-På localhost:3000/api/matches kan du hente ut alle kampene. Erstatt den hardkodede løsningen ved å gjøre et fetch-kall til denne URL-en. 
-
-
 Definition of done: Alle kampene blir synlig i VM-planleggeren
 
 ## b)
