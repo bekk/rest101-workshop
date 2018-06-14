@@ -16,7 +16,7 @@ export default class MatchDay extends React.Component {
         <h3 className="matchSchedule-daylist-date">
           {moment(new Date(this.props.date)).format('MMMM Do')}
         </h3>
-        <div className="matchSchedule-daylist">
+        <section className="matchSchedule-daylist">
           {this.props.matchesThisDay &&
             this.props.matchesThisDay.length > 0 &&
             this.props.matchesThisDay.map(match => {
@@ -39,7 +39,7 @@ export default class MatchDay extends React.Component {
                 />
               );
             })}
-        </div>
+        </section>
       </React.Fragment>
     );
   }

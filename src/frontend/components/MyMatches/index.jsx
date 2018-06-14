@@ -1,7 +1,5 @@
 import React from 'react';
-
 import SavedMatch from './SavedMatch';
-import { getMatches } from './../../dataStore/staticData';
 
 class MyMatches extends React.Component {
   constructor(props) {
@@ -16,7 +14,7 @@ class MyMatches extends React.Component {
     }
 
     return (
-      <section className="savedMatches">
+      <article className="savedMatches">
         <h2>Dine kamper</h2>
         {hasSavedMatches &&
           this.props.savedMatches.map(match => {
@@ -29,7 +27,7 @@ class MyMatches extends React.Component {
             );
           })}
         {!hasSavedMatches && noSavedMatches()}
-      </section>
+      </article>
     );
   }
 }

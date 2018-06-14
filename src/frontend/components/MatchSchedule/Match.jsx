@@ -4,7 +4,7 @@ import moment from 'moment';
 
 const Match = props => {
   return (
-    <div className="matchSchedule-match">
+    <section className="matchSchedule-match">
       <div className="row">
         <div className="col-sm">
           <span className="matchSchedule-match-time">
@@ -31,7 +31,7 @@ const Match = props => {
           </button>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

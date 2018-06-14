@@ -2,14 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import MatchSchedule from './components/MatchSchedule';
-import SavedMatches from './components/MyMatches';
 import MyMatches from './components/MyMatches';
 
 import api from './utils/api';
-import {
-  setMatches,
-  setTeams,
-} from './dataStore/staticData';
+import { setMatches, setTeams } from './dataStore/staticData';
 
 class App extends React.Component {
   constructor() {
@@ -39,24 +35,33 @@ class App extends React.Component {
   }
 
   addMatchToSavedMatches(matchId) {
-    api
-      .saveMatch(matchId)
-      .then(res => {
+    try {
+      api.saveMatch(matchId).then(res => {
         this.setState(prevState => {
           return { savedMatches: [...prevState.savedMatches, res] };
         });
-      })
-      .catch(err => console.error(err));
+      });
+    } catch (err) {
+      console.log(
+        'Kunne ikke lagre denne kampen. Er saveMatch-funksjonen i api.js implementert?'
+      );
+    }
   }
 
   deleteMatchFromSavedMatches(matchId) {
-    api.deleteMatchFromSavedMatches(matchId).then(ok => {
-      if (ok) {
-        api.getAllSavedMatches().then(res => {
-          this.setState({ savedMatches: res.savedMatches });
-        });
-      }
-    });
+    try {
+      api.deleteMatchFromSavedMatches(matchId).then(ok => {
+        if (ok) {
+          api.getAllSavedMatches().then(res => {
+            this.setState({ savedMatches: res.savedMatches });
+          });
+        }
+      });
+    } catch (err) {
+      console.log(
+        'Kunne ikke slette denne kampen. Er deleteMatchFromSavedMatches-funksjonen i api.js implementert?'
+      );
+    }
   }
 
   render() {
