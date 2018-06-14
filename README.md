@@ -4,7 +4,7 @@
 
 ## Steg 1: Har du alt installert?
 
-Åpne en terminal. Kjør følgende kommandoer (uten $ til å begynner, gjelder alle kommandoer i denne teksten)
+Åpne en terminal. Kjør følgende kommandoer (Uten $ i start av kommando. Dette gjelder alle kommandoer i denne teksten)..
 ```
 $ node --version
 $ npm --version
@@ -40,6 +40,6 @@ Det du nå har satt opp er to proseser. Hold disse kjørende under hele workshop
 
 ## Steg 4 - Oppgavetid.
 Oppgaver ligger i `oppgaver/`. Det er bare å begynne. I all hovedsak vil arbeidet foregå i filene `src/frontend/utils/api.js` og `src/server.js`.
-Dersom siden blir svart, se i debug-konsollen DevTools (Cmd+Alt+J på Mac / F11 på Windows). Det kan også være lurt å følge med i loggen til
+Dersom siden blir svart, se i debug-konsollen DevTools (Cmd+Alt+J på Mac / F11 på Windows). 
 
 Dersom noen blir ferdig med hele settet eller har spørsmål; Rop ut. Vi har *masse* bonusoppgaver.
