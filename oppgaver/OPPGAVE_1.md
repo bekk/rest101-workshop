@@ -62,3 +62,8 @@ app.delete("/api/savedmatches/:id", (req,res) => {
 ```
 
 Fyll inn metoden deleteMatch() i frontend/utils/api.js, slik at kamper forsvinner når du trykker de bort. 
+
+## e)
+Man har også mulighet til å vise kanalen en kamp går på. 
+Lag et API for å hente ut navn og logo på en gitt kanal-id. 
+Fyll ut metoden getChannel() for å benytte API-et 
