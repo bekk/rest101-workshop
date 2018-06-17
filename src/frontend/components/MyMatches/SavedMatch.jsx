@@ -26,9 +26,9 @@ class SavedMatch extends React.Component {
           .then(channel => {
             this.setState({ channel: channel });
           });
-        
+
         api.fetchWeather(matchData.date).then(weather => {
-          this.setState({weather: weather});
+          this.setState({ weather: weather });
         });
       });
     }
@@ -43,8 +43,8 @@ class SavedMatch extends React.Component {
     const homeGoals = this.state.matchData.home_result ? this.state.matchData.home_result : '1';
     const awayGoals = this.state.matchData.away_result ? this.state.matchData.away_result :  '3';
     return (
-      <div className="myMatches-savedMatch">
-        <div className="myMatches--inner-container">
+      <section className="myMatches-savedMatch">
+        <section className="myMatches--inner-container">
           <button
             className="myMatches-remove"
             onClick={() => this.props.removeMatch(this.props.matchId)}
@@ -75,23 +75,26 @@ class SavedMatch extends React.Component {
             </div>
             <div className="col-sm">
               <span className="myMatches-weather">
-                {
-                    this.state.weather.symbolUrl &&
-                    <img
-                        src={"https://fotballfest-test.herokuapp.com" + this.state.weather.symbolUrl}
-                        className="myMatches-weather-symbol"
-                    />
-                }
+                {this.state.weather.symbolUrl && (
+                  <img
+                    src={
+                      'https://fotballfest-test.herokuapp.com' +
+                      this.state.weather.symbolUrl
+                    }
+                    className="myMatches-weather-symbol"
+                  />
+                )}
                 <span className="myMatches-weather-info">
-                  {this.state.weather.location && this.state.weather.location.temperature.value}
+                  {this.state.weather.location &&
+                    this.state.weather.location.temperature.value}
                   &deg;C
-                  {this.state.weather.rain && " / " + this.state.weather.rain}
+                  {this.state.weather.rain && ' / ' + this.state.weather.rain}
                 </span>
               </span>
             </div>
           </div>
-        </div>
-      </div>
+        </section>
+      </section>
     );
   }
 }

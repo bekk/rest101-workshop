@@ -8,7 +8,20 @@ Følg instruksene i [README](https://github.com/bekk/rest101-workshop).
 Velkommen til VM-planleggeren. I dag skal dere lage en applikasjon hvor dere kan planlegge hvilke VM-kamper dere ønsker å se på fra Kontraskjæret.
 Akkurat nå er ikke applikasjonen spesielt spennende. Den har en hardkodet kamp som ligger i frontenden til applikasjonen. 
 Første oppgave går ut på å hente alle kampene. 
-På localhost:3000/api/matches kan du hente ut alle kampene. Erstatt den hardkodede løsningen ved å gjøre et fetch-kall til denne URL-en. 
+
+I `frontend/utils/api.js` finner du en del metoder som forventes å fylles ut i løpet av denne workshopen. *Koden som ligger i api.js er et hardkodet utdrag av det man forventer å få i retur. Det vil si at responsen du mottar som et minimum må inneholde feltene som er hardkodet der.* 
+
+`server.js` svarer med 501 - Not implemented på alle metoder.
+ 
+
+
+Fyll ut metodene `getAllMatches()` i `api.js` og følgende metode i `server.js`
+
+```
+app.get("/api/matches", (req, res) => {
+  res.status(501).send({"message": "Not implemented yet"}); // Erstatt denne linjen med egen kode
+});
+``` 
 
 Definition of done: Alle kampene blir synlig i VM-planleggeren
 
@@ -37,7 +50,6 @@ app.post("/api/savedmatches", (req, res) => {
 
 Underveis i utviklingen kan det være nyttig å bruke en HTTP-klient for å teste API-et ditt før du drar i gang med frontend. Eksempelvis [POSTMAN](https://www.getpostman.com/apps)
 
-Når API-et er ferdig og du har testet med POSTMAN, kan du begynne på frontend-biten. I frontend/utils/api.js finner du en del metoder som forventes å fylles ut i løpet av denne workshopen. 
 
 Fyll ut metoden saveMatch() slik at kampen blir lagret. 
 
@@ -46,7 +58,7 @@ Definition of done: Kamper du har lagt til blir synlig i toppen av skjermen. Kam
 ## c)
 For å vise en lagret kamp må man hente informasjon om en spesifikk kamp. 
 
-Frontenden forventer en rest-ressurs som svarer på GET - "/api/matches/<ID>" hvor <ID> tilsvarer match.name i JSON-filen. 
+Frontenden forventer en rest-ressurs som svarer på GET - "/api/matches/\<ID\>" hvor \<ID\> tilsvarer match.name i JSON-filen. 
 
 
 ## d)
