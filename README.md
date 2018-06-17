@@ -10,6 +10,12 @@ $ npm --version
 
 Er det noen av disse som ikke svarer med et versjonsnummer? Ta kontakt, så hjelper vi deg.
 
+Kjør så følgende kommando i terminalen:
+```
+$ npm i -g parcel-bundler nodemon
+```
+Denne installerer [parcel](https://parceljs.org/) og [nodemon](https://nodemon.io/) som brukes for å kjøre prosjektet i Steg 3. 
+
 ## Steg 2:
 Last ned .zip-filen under og pakk den ut. Destinasjonen blir heretter referert til som $PROJECT_DIR
 https://github.com/bekk/rest101-workshop/archive/master.zip
