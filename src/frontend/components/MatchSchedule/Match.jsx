@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import moment from 'moment';
 
 const Match = props => {
@@ -42,14 +41,3 @@ const Match = props => {
 };
 
 export default Match;
-
-Match.propTypes = {
-  match: PropTypes.object,
-  homeTeam: PropTypes.string,
-  homeTeamEmoji: PropTypes.string,
-  homeGoals: PropTypes.string,
-  awayTeam: PropTypes.string,
-  awayTeamEmoji: PropTypes.string,
-  awayGoals: PropTypes.string,
-  saveMatch: PropTypes.func
-};

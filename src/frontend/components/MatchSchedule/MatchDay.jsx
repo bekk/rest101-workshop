@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import moment from 'moment';
 
 import Match from './Match';
@@ -47,9 +46,3 @@ export default class MatchDay extends React.Component {
     );
   }
 }
-
-MatchDay.propTypes = {
-  date: PropTypes.string,
-  matchesThisDay: PropTypes.array,
-  saveMatch: PropTypes.func
-};
