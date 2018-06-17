@@ -9,7 +9,7 @@ På `https://fotballfest.herokuapp.com/api/matches` kan dere hente ut kamper med
 Benytt endepunktet for å hente ut kamper i stedet for å benytte den statiske JSON-filen. 
 
 OBS!
-Tjenesten benytter Basic Auth (Brukernavn/Passord: kontraskjaret/Sommerjobb2018).
+Tjenesten benytter Basic Auth (Brukernavn/Passord: kontraskjaeret/Sommerjobb2018).
 Mye av hverdagen består i å google, så du kan like godt begynne i dag.
 
 ## Hint: 
