@@ -47,3 +47,6 @@ Oppgaver ligger i `oppgaver/`. Det er bare å begynne. I all hovedsak vil arbeid
 Dersom siden blir svart, se i debug-konsollen DevTools (Cmd+Alt+J på Mac / F11 på Windows). 
 
 Dersom noen blir ferdig med hele settet eller har spørsmål; Rop ut. Vi har *masse* bonusoppgaver.
+
+## Nyttig ressurs - Introduksjon til webutvikling
+https://johhorn.gitbooks.io/web-intro/
