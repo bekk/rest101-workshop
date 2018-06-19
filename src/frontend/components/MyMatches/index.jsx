@@ -32,9 +32,4 @@ class MyMatches extends React.Component {
   }
 }
 
-// Print ut data, klokkeslett for kampen
-// Print ut hvem som spiller. Altså samme som tidligere
-// Ta med flagg
-// ta med type kamp
-// lag dataset på
 export default MyMatches;
