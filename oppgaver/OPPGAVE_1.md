@@ -53,6 +53,12 @@ Underveis i utviklingen kan det være nyttig å bruke en HTTP-klient for å test
 
 Fyll ut metoden saveMatch() slik at kampen blir lagret. 
 
+Du må også implementere, som skal returnere alle lagrede kamper
+
+```
+app.get("/api/savedmatches", (req, res) => {});
+```
+
 Definition of done: Kamper du har lagt til blir synlig i toppen av skjermen. Kamper du har lagret blir også værende dersom du refresher siden. Noen justeringer i frontenden går helt fint der for å få backend og frontend til å henge sammen. 
 
 ## c)
