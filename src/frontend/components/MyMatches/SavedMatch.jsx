@@ -40,8 +40,8 @@ class SavedMatch extends React.Component {
       getTeamWithId(this.state.matchData.home_team) || UNKNOWN_TEAM;
     const awayTeam =
       getTeamWithId(this.state.matchData.away_team) || UNKNOWN_TEAM;
-    const homeGoals = this.state.matchData.home_result ? this.state.matchData.home_result : '1';
-    const awayGoals = this.state.matchData.away_result ? this.state.matchData.away_result :  '3';
+    const homeGoals = this.state.matchData.home_result;
+    const awayGoals = this.state.matchData.away_result;
     return (
       <section className="myMatches-savedMatch">
         <section className="myMatches--inner-container">
