@@ -71,7 +71,7 @@ Frontenden forventer en rest-ressurs som svarer på GET - "/api/matches/\<ID\>" 
 Dersom alt har gått bra nå kommer dine lagrede kamper i et panel øverst på siden. 
 Denne har en X i høyre hjørne. 
 
-Fyll inn ressursen under, slik at kamper kan bli fjernet i det du sletter de. 
+Fyll inn ressursen under i server.js, slik at kamper kan bli fjernet i det du sletter de. 
 
 ```
 app.delete("/api/savedmatches/:id", (req,res) => {
