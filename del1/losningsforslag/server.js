@@ -1,4 +1,5 @@
 const express = require('express');
+
 const app = express();
 
 // Middlewares
@@ -12,7 +13,7 @@ let handleliste = [
   },
   {
     id: 2,
-    ting: "Avocado",
+    ting: "Avokado",
     antall: 2,
     kommentar: "Må være moden. Om ikke, kjøp guacamole på boks."
   },
@@ -34,7 +35,6 @@ let handleliste = [
   }
 ];
 
-// res.status(501).send({"message": "Not implemented yet"});
 app.get("/api/handleliste", (req, res) => {
   const responseBody = {
     handleliste: handleliste.map(ting => {
@@ -45,8 +45,9 @@ app.get("/api/handleliste", (req, res) => {
       }
     }),
   };
-  res.send(responseBody);
+  res.status(200).send(responseBody);
 });
+
 
 app.get("/api/handleliste/:id", (req, res) => {
   let id = parseInt(req.params.id, 10);
@@ -86,13 +87,8 @@ app.put("/api/handleliste/:id", (req, res) => {
 
 app.delete("/api/handleliste/:id", (req, res) => {
   const id = parseInt(req.params.id, 10);
-  const elementToBeDeleted = handleliste.find(e => e.id === id);
-  if (elementToBeDeleted === undefined) {
-    res.status(204).send();
-  } else {
-    handleliste = handleliste.filter(e => e.id !== id);
-    res.status(200).send();
-  }
+  handleliste = handleliste.filter(e => e.id !== id);
+  res.status(204).send();
 });
 
 // PORT
