@@ -1,9 +1,10 @@
+// Suggested solution to tasks in part 1
 const express = require('express');
 
 const app = express();
 
 // Middlewares
-app.use(express.json());
+app.use(express.json()); // Brukes for å kunne lese JSON fra request body
 
 let handleliste = [
   {
@@ -15,7 +16,7 @@ let handleliste = [
     id: 2,
     ting: "Avokado",
     antall: 2,
-    kommentar: "Må være moden. Om ikke, kjøp guacamole på boks."
+    kommentar: "Må være moden."
   },
   {
     id: 3,
