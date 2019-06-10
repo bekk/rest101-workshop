@@ -5,7 +5,15 @@ if (!Object.values) {
   values.shim();
 }
 
+// Read data
+const teams2019Json = JSON.parse(fs.readFileSync("./data/teams2019.json", "utf-8"));
+const matches2019Json = JSON.parse(fs.readFileSync("./data/matches2019.json", "utf-8"));
+const channels = JSON.parse(fs.readFileSync("./data/channels.json", "utf-8"));
+const tvSchedule = JSON.parse(fs.readFileSync("./data/tv-schedule.json", "utf-8"));
+
 const formatMatches = (unformattedMatches) => unformattedMatches.map((m, idx) => {
+  const channelId = tvSchedule[idx].channelId;
+
   return (
     {
       matchCategory: m.stage_name,
@@ -17,9 +25,7 @@ const formatMatches = (unformattedMatches) => unformattedMatches.map((m, idx) =>
       away_result: m.away_team.goals,
       date: m.datetime,
       channels: [
-          4,
-          6,
-          13
+          channelId
       ],
       finished: m.status === "completed",
     });
@@ -43,13 +49,8 @@ const formatTeams = (unformattedTeams) => unformattedTeams.map((t, idx) => {
 
 
 // Preparing data
-const worldcupData = JSON.parse(fs.readFileSync("./data/worldcup2018.json", "utf8"));
-const teams2019Json = JSON.parse(fs.readFileSync("./data/teams2019.json", "utf-8"));
-const matches2019Json = JSON.parse(fs.readFileSync("./data/matches2019.json", "utf-8"));
-
 const teams = formatTeams(teams2019Json);
 const matches = formatMatches(matches2019Json);
-const channels = Object.values(worldcupData.tvchannels);
 
 module.exports = {
   teams,
