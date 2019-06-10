@@ -99,7 +99,7 @@ app.get("/api/saved-matches", (req, res) => {
 app.post("/api/saved-matches", (req, res) => {
   console.log(req.body);
   const matchId = req.body.matchId;
-  savedMatches = savedMatches.filter(match => match.matchId && match.matchId !== matchId);
+  savedMatches = savedMatches.filter(match => match.matchId !== undefined && match.matchId !== matchId);
   savedMatches.push({
     matchId: matchId
   });

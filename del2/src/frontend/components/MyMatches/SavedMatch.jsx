@@ -17,7 +17,7 @@ class SavedMatch extends React.Component {
       channel: {},
       weather: {}
     };
-    if (props.matchId) {
+    if (props.matchId !== undefined || props.matchId !== null) {
       api.getMatch(props.matchId).then(matchData => {
         this.setState({ matchData: matchData });
 
