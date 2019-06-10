@@ -36,11 +36,12 @@ class App extends React.Component {
 
   addMatchToSavedMatches(matchId) {
     try {
-      // TODO: Gjør heller et nytt kall mot saved matches som under delete
-      api.saveMatch(matchId).then(res => {
-        this.setState(prevState => {
-          return { savedMatches: [...prevState.savedMatches, res] };
-        });
+      api.saveMatch(matchId).then(ok => {
+        if (ok) {
+          api.getAllSavedMatches().then(res => {
+            this.setState({ savedMatches: res.savedMatches });
+          });
+        }
       });
     } catch (err) {
       console.log(
@@ -51,12 +52,10 @@ class App extends React.Component {
 
   deleteMatchFromSavedMatches(matchId) {
     try {
-      api.deleteMatchFromSavedMatches(matchId).then(ok => {
-        if (ok) {
+      api.deleteMatchFromSavedMatches(matchId).then(_ => {
           api.getAllSavedMatches().then(res => {
             this.setState({ savedMatches: res.savedMatches });
           });
-        }
       });
     } catch (err) {
       console.log(
@@ -68,7 +67,7 @@ class App extends React.Component {
   render() {
     return (
       <main className="mainSection">
-        <h1>VM-planlegger</h1>
+        <h1>VM-planlegger 2019</h1>
         <MyMatches
           savedMatches={this.state.savedMatches}
           removeMatch={this.deleteMatchFromSavedMatches}

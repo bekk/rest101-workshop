@@ -36,7 +36,6 @@ function getAllSavedMatches() {
 
 
 function saveMatch(matchId) {
-	console.log(matchId);
 	return fetch("./api/saved-matches", {
 		method: "POST",
 		headers: {
