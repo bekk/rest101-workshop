@@ -96,7 +96,7 @@ app.get('/api/channels/:id', (req, res) => {
 });
 
 app.get('/api/weather/', (req, res) => {
-  fetch("https://fotballfest-test.herokuapp.com/api/weather?time=2019-06-10T20:37:17.803Z")
+  fetch("https://fotballfest-api-2019.herokuapp.com/api/weather?time=2019-06-10T20:37:17.803Z")
     .then(res => res.json())
     .then(weather => res.send(weather));
 });

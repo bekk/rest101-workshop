@@ -79,7 +79,7 @@ class SavedMatch extends React.Component {
                 {this.state.weather.symbolUrl && (
                   <img
                     src={
-                      'https://fotballfest-test.herokuapp.com' +
+                      'https://fotballfest-api-2019.herokuapp.com' +
                       this.state.weather.symbolUrl
                     }
                     className="myMatches-weather-symbol"
