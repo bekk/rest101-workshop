@@ -40,6 +40,7 @@ class SavedMatch extends React.Component {
       getTeamWithId(this.state.matchData.home_team) || UNKNOWN_TEAM;
     const awayTeam =
       getTeamWithId(this.state.matchData.away_team) || UNKNOWN_TEAM;
+    const groupLetter = homeTeam.group_letter;
     const homeGoals = this.state.matchData.home_result;
     const awayGoals = this.state.matchData.away_result;
     return (
@@ -56,15 +57,15 @@ class SavedMatch extends React.Component {
               )}
             </div>
             <div>
-              {norwegianRoundFromEnglish(this.state.matchData.matchCategory)}
+              {norwegianRoundFromEnglish(this.state.matchData.matchCategory, groupLetter)}
             </div>
           </div>
           <div className="myMatches-teamsInMatch">
-            <Team teamName={homeTeam.name} flagUrl={homeTeam.flag} />
+            <Team teamName={homeTeam.country} flagUrl={homeTeam.flag} />
             <span className={`myMatches-homeGoals ${homeGoals > awayGoals ? 'myMatches-winner' : ''}`}>{homeGoals}</span>
             <div className="myMatches-teamSeparator" />
             <span className={`myMatches-awayGoals ${homeGoals < awayGoals ? 'myMatches-winner' : ''}`}>{awayGoals}</span>
-            <Team teamName={awayTeam.name} flagUrl={awayTeam.flag} />
+            <Team teamName={awayTeam.country} flagUrl={awayTeam.flag} />
           </div>
           <div className="row">
             <div className="col-sm">

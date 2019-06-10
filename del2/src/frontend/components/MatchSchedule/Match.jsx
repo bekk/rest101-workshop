@@ -2,6 +2,7 @@ import React from 'react';
 import moment from 'moment';
 
 const Match = props => {
+  console.log(moment(new Date("2019-06-09T23:00:00Z")).format('HH:mm'))
   return (
     <section className="matchSchedule-match">
       <div className="row">

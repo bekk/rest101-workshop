@@ -6,7 +6,7 @@ function getTeams() {
 }
 
 function getTeamWithId(id) {
-  return teams.find(t => t.id === id);
+  return teams.find(t => t.fifaCode === id);
 }
 
 function setTeams(teamsFetchedFromServer) {
