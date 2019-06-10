@@ -36,6 +36,7 @@ class App extends React.Component {
 
   addMatchToSavedMatches(matchId) {
     try {
+      // TODO: Gjør heller et nytt kall mot saved matches som under delete
       api.saveMatch(matchId).then(res => {
         this.setState(prevState => {
           return { savedMatches: [...prevState.savedMatches, res] };
