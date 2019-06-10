@@ -30,7 +30,7 @@ export default class MatchDay extends React.Component {
 
               return (
                 <Match
-                  key={match.name}
+                  key={match.id}
                   match={match}
                   homeTeam={homeTeamName}
                   homeTeamEmoji={homeTeamEmoji}

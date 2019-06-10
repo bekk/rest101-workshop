@@ -17,7 +17,7 @@ const formatMatches = (unformattedMatches) => unformattedMatches.map((m, idx) =>
   return (
     {
       matchCategory: m.stage_name,
-      name: idx,
+      id: idx,
       fifa_id: m.fifa_id,
       home_team: m.home_team.code,
       away_team: m.away_team.code,

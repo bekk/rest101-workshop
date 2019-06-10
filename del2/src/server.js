@@ -47,7 +47,7 @@ app.get("/api/matches", (req, res) => {
 // Hint: Bruk req.params.id for å hente ut id.
 app.get("/api/matches/:id", (req, res) => {
   const id = parseInt(req.params.id, 10)
-  const match = matches.find(e => e.name === id);
+  const match = matches.find(e => e.id === id);
   if (match === undefined) {
     res.status(404).send();
   }
