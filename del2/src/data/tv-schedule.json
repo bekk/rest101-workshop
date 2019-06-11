@@ -1,0 +1,262 @@
+[
+  {
+    "description": "1:00 Frankrike - Sør-Korea, gruppe A",
+    "channel": "NRK 2",
+    "channelId": 14
+  },
+  {
+    "description": "15:00 Tyskland - Kina, gruppe B",
+    "channel": "TV 2 Sport 1/2/Premium",
+    "channelId": 16
+  },
+  {
+    "description": "19:00 Spania - Sør-Afrika, gruppe B",
+    "channel": "NRK 2",
+    "channelId": 14
+  },
+  {
+    "description": "21:00 Norge - Nigeria, gruppe A",
+    "channel": "TV 2",
+    "channelId": 12
+  },
+  {
+    "description": "13:00 Australia - Italia, gruppe C",
+    "channel": "NRK 1",
+    "channelId": 13
+  },
+  {
+    "description": "15:30 Brasil - Jamaica, gruppe C",
+    "channel": "NRK 1",
+    "channelId": 13
+  },
+  {
+    "description": "18:00 England - Skottland, gruppe D",
+    "channel": "TV 2 Sport 1/2/Premium",
+    "channelId": 16
+  },
+  {
+    "description": "18:00 Argentina - Japan, gruppe D",
+    "channel": "TV 2 Sport 1/2/Premium",
+    "channelId": 16
+  },
+  {
+    "description": "21:00 Canada - Kamerun, gruppe E",
+    "channel": "NRK 2",
+    "channelId": 14
+  },
+  {
+    "description": "15:00 New Zealand - Nederland, gruppe E",
+    "channel": "TV 2 Sport 1/2/Premium",
+    "channelId": 16
+  },
+  {
+    "description": "18:00 Chile - Sverige, gruppe F - NRK 1",
+    "channel": "NRK 2",
+    "channelId": 14
+  },
+  {
+    "description": "21:00 USA - Thailand, gruppe F",
+    "channel": "TV 2 Sport 1/2/Premium",
+    "channelId": 16
+  },
+  {
+    "description": "15:00 Nigeria - Sør-Korea, gruppe A",
+    "channel": "NRK 1",
+    "channelId": 13
+  },
+  {
+    "description": "18:00 Tyskland - Spania, gruppe B",
+    "channel": "TV 2 Sport 1/2/Premium",
+    "channelId": 16
+  },
+  {
+    "description": "21:00 Frankrike - Norge, gruppe A",
+    "channel": "NRK 1",
+    "channelId": 13
+  },
+  {
+    "description": "18:00 Australia - Brasil, gruppe C",
+    "channel": "TV 2 Sport 1/2/Premium",
+    "channelId": 16
+  },
+  {
+    "description": "21:00 Sør-Afrika - Kina, gruppe  B",
+    "channel": "TV 2 Sport 1/2/Premium",
+    "channelId": 16
+  },
+  {
+    "description": "15:00 Japan - Skottland, gruppe D",
+    "channel": "TV 2 Sport 1/2/Premium",
+    "channelId": 16
+  },
+  {
+    "description": "18:00 Jamaica - Italia, gruppe C",
+    "channel": "TV 2 Sport 1/2/Premium",
+    "channelId": 16
+  },
+  {
+    "description": "21:00 England - Argentina, gruppe D",
+    "channel": "NRK 2",
+    "channelId": 14
+  },
+  {
+    "description": "15:00 Nederland - Kamerun, gruppe E",
+    "channel": "NRK 1",
+    "channelId": 13
+  },
+  {
+    "description": "21:00 Canada - New Zealand, gruppe E",
+    "channel": "TV 2 Sport 1/2/Premium",
+    "channelId": 16
+  },
+  {
+    "description": "15:00 Sverige - Thailand, gruppe F",
+    "channel": "TV 2 Sport 1/2/Premium",
+    "channelId": 16
+  },
+  {
+    "description": "18:00 USA - Chile, gruppe F",
+    "channel": "NRK 2",
+    "channelId": 14
+  },
+  {
+    "description": "18:00 Sør-Afrika - Tyskland, gruppe B",
+    "channel": "NRK 2",
+    "channelId": 14
+  },
+  {
+    "description": "18:00 Kina - Spania, gruppe B",
+    "channel": "NRK 3",
+    "channelId": 15
+  },
+  {
+    "description": "21:00 Sør-Korea - Norge, gruppe A",
+    "channel": "NRK 1",
+    "channelId": 13
+  },
+  {
+    "description": "21:00 Nigeria - Frankrike, gruppe A",
+    "channel": "TV 2 Sport 1/2/Premium",
+    "channelId": 16
+  },
+  {
+    "description": "21:00 Jamaica - Australia, gruppe C",
+    "channel": "NRK 3",
+    "channelId": 15
+  },
+  {
+    "description": "21:00 Italia - Brasil, gruppe C",
+    "channel": "NRK 2",
+    "channelId": 14
+  },
+  {
+    "description": "21:00 Skottland - Argentina, gruppe D",
+    "channel": "TV 2 Sport 1/2/Premium",
+    "channelId": 16
+  },
+  {
+    "description": "21:00 Japan - England, gruppe D",
+    "channel": "TV 2 Sport 1/2/Premium",
+    "channelId": 16
+  },
+  {
+    "description": "18:00 Nederland - Canada, gruppe E",
+    "channel": "TV 2 Sport 1/2/Premium",
+    "channelId": 16
+  },
+  {
+    "description": "18:00 Kamerun - New Zealand, gruppe E",
+    "channel": "TV 2 Sport 1/2/Premium",
+    "channelId": 16
+  },
+  {
+    "description": "21:00 Sverige - USA, gruppe F",
+    "channel": "NRK 1",
+    "channelId": 13
+  },
+  {
+    "description": "21:00 Thailand - Chile, gruppe F",
+    "channel": "NRK 2",
+    "channelId": 14
+  },
+  {
+    "description": "17:30 Vinner gruppe B - Beste treer gruppe A/C/D, åttendedelsfinale",
+    "channel": "TV 2 Sport 1/2/Premium",
+    "channelId": 16
+  },
+  {
+    "description": "21:00 Nr. 2 gruppe A - Nr. 2 gruppe C, åttendedelsfinale",
+    "channel": "NRK 1",
+    "channelId": 13
+  },
+  {
+    "description": "17:30 Vinner gruppe D - Beste treer gruppe B/E/F, åttendedelsfinale",
+    "channel": "NRK 2",
+    "channelId": 14
+  },
+  {
+    "description": "21:00 Vinner gruppe A - Beste treer gruppe C/D/E åttendedelsfinale",
+    "channel": "TV 2 Sport 1/2/Premium",
+    "channelId": 16
+  },
+  {
+    "description": "18:00 Nr. 2 gruppe B - Vinner gruppe F, åttendedelsfinale",
+    "channel": "TV 2 Sport 1/2/Premium",
+    "channelId": 16
+  },
+  {
+    "description": "21:00 Nr. 2 gruppe F - Nr. 2 gruppe E, åttendedelsfinale",
+    "channel": "NRK 2",
+    "channelId": 14
+  },
+  {
+    "description": "18:00 Vinner gruppe C - Beste treer gruppe A/B/F, åttendedelsfinale",
+    "channel": "NRK 2",
+    "channelId": 14
+  },
+  {
+    "description": "21:00 Vinner gruppe E - Nr. 2 gruppe D, åttendedelsfinale",
+    "channel": "TV 2 Sport 1/2/Premium",
+    "channelId": 16
+  },
+  {
+    "description": "21:00 Kvartfinale",
+    "channel": "TV 2",
+    "channelId": 12
+  },
+  {
+    "description": "21:00 Kvartfinale",
+    "channel": "NRK 2",
+    "channelId": 14
+  },
+  {
+    "description": "15:00 Kvartfinale",
+    "channel": "TV 2",
+    "channelId": 12
+  },
+  {
+    "description": "18:30 Kvartfinale",
+    "channel": "NRK 2",
+    "channelId": 14
+  },
+  {
+    "description": "21:00 Semifinale",
+    "channel": "NRK 1",
+    "channelId": 13
+  },
+  {
+    "description": "21:00 Semifinale",
+    "channel": "TV 2",
+    "channelId": 12
+  },
+  {
+    "description": "17:00 Bronsefinale",
+    "channel": "NRK 2",
+    "channelId": 14
+  },
+  {
+    "description": "17:00 Finale",
+    "channel": "NRK 1",
+    "channelId": 13
+  }
+]

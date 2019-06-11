@@ -156,6 +156,7 @@ main {
   border-width: 3px;
   border-color: black;
   border-radius: 100%;
+  object-fit: cover;
 }
 
 

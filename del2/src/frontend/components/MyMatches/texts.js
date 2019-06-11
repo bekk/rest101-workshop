@@ -1,7 +1,7 @@
-function norwegianRoundFromEnglish(name) {
+function norwegianRoundFromEnglish(name, firstStageGroupName) {
     switch(name) {
-        case 'Group A':
-            return 'Gruppe A';
+        case 'First Stage':
+            return 'Gruppe ' + firstStageGroupName;
         case 'Group B':
             return 'Gruppe B';
         case 'Group C':
@@ -17,14 +17,14 @@ function norwegianRoundFromEnglish(name) {
         case 'Group H':
             return 'Gruppe H';
         case 'Round of 16':
-            return '16-delsfinale';
+            return '8-delsfinale';
         case 'Round of 8':
             return '8-delsfinale';
-        case 'Quarter-finals':
+        case 'Quarter-final':
             return 'Kvartfinale';
-        case 'Semi-finals':
+        case 'Semi-final':
             return 'Kvartfinale';
-        case 'Third place play-off':
+        case 'Match for third place':
             return 'Bronsefinale';
         case 'Final':
             return 'Finale';

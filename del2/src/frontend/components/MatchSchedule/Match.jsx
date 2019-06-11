@@ -30,7 +30,7 @@ const Match = props => {
         <div className="col-sm">
           <button
             className="matchSchedule-addMatch btn"
-            onClick={() => props.saveMatch(props.match.name)}
+            onClick={() => props.saveMatch(props.match.id)}
           >
             Legg til
           </button>

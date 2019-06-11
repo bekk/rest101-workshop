@@ -1,0 +1,46 @@
+[
+  {
+    "country": "Norway",
+    "icon":
+      "https://upload.wikimedia.org/wikipedia/commons/5/59/NRK1_logo.png",
+    "id": 13,
+    "iso2": "nor",
+    "lang": ["no"],
+    "name": "NRK1"
+  },
+  {
+    "country": "Norway",
+    "icon":
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/NRK2-Logo.svg/500px-NRK2-Logo.svg.png",
+    "id": 14,
+    "iso2": "nor",
+    "lang": ["no"],
+    "name": "NRK2"
+  },
+  {
+    "country": "Norway",
+    "icon":
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/NRK3_logo.svg/500px-NRK3_logo.svg.png",
+    "id": 15,
+    "iso2": "nor",
+    "lang": ["no"],
+    "name": "NRK3"
+  },
+  {
+    "country": "Norway",
+    "icon":
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Tv-2-norway.png/500px-Tv-2-norway.png",
+    "id": 12,
+    "iso2": "nor",
+    "lang": ["no"],
+    "name": "TV2"
+  },
+  {
+    "country": "Norway",
+    "icon": "https://www.tv2.no/kanaler/images/tv2sportskanalen-logo.svg",
+    "id": 16,
+    "iso2": "nor",
+    "lang": ["no"],
+    "name": "TV2 Sportskanalen"
+  }
+]
