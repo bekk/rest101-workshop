@@ -113,7 +113,7 @@ Hvis du forsøker å legge til en kamp, så skjer det ingenting.
 Ta en kikk i `server.js`. Fyll ut endepunktet under, slik at kampene du legger til blir lagret: 
 
 ```js
-app.post("/api/savedmatches", (req, res) => {
+app.post("/api/saved-matches", (req, res) => {
    // Din kode her
 });
 ```
@@ -123,7 +123,7 @@ PS! Lagringsmodellen din kan være veldig dum. Man kommer veldig langt med
 const savedMatches = [];
 
 //...
-app.post("/api/savedmatches", (req, res) => {
+app.post("/api/saved-matches", (req, res) => {
    const savedMatch = {} // Velg parametrene du ønsker å lagre her
    savedmatches.push(savedMatch);
    // Husk å svare med res.send(...)
