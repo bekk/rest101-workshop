@@ -9,7 +9,7 @@ $ node --version
 $ npm --version
 ```
 
-Er det noen av disse som ikke svarer med et versjonsnummer? Ta kontakt, så hjelper vi deg.
+Er det noen av disse som ikke svarer med et versjonsnummer? Da mangler du enten node eller npm. Ta kontakt, så hjelper vi deg. Det skal i utgangspunktet ikke spille noen rolle hvilken versjon du har installert av node og npm.
 
 Kjør så følgende kommando i terminalen:
 ```
@@ -30,10 +30,9 @@ $ npm i
 $ npm run server
 ```
 
-Du kan nå gjøre del 1 av workshopen. Det er langt flere oppgaver her enn det vi har tid til i dag. Dere må jobbe i deres eget tempo og dere må selv passe på å ta pauser. 
+Du kan nå gjøre del 1 av workshopen. Dere må jobbe i deres eget tempo og dere må selv passe på å ta pauser. 
 
-Oppgavene finne du her `/del1/OPPGAVE_1.md`. Du kan også lese oppgavene på github [her](). TODO: Legg inn lenke.
-
+Oppgavene finne du her `/del1/OPPGAVE_1.md`. Du kan også lese oppgavene på github [her](https://github.com/bekk/rest101-workshop/blob/master/del1/OPPGAVE_1.md).
 ## Steg 4 - oppsett del 2
 Ferdig med del 1? Følg instruksjonene under for å komme i gang med del 2.
 
