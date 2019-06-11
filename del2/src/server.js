@@ -39,70 +39,49 @@ app.get("/api/teams", (req, res) => {
 
 // Oppgave 1a
 app.get("/api/matches", (req, res) => {
-  res.send({
-    matches: matches,
-  });
+  //*** Oppgave 5 ***
+  // Your code here
+  res.status(501).send({"message": "Not implemented yet"}); // Remove this line
+
+  // ***  ^^^^^^^  ***
+});
+
+
+// Oppgave 1b
+app.get("/api/saved-matches", (req, res) => {
+  res.status(501).send({"message": "Not implemented yet"}); // Remove this line
 });
 
 // Hint: Bruk req.params.id for å hente ut id.
 app.get("/api/matches/:id", (req, res) => {
-  const id = parseInt(req.params.id, 10)
-  const match = matches.find(e => e.id === id);
-  if (match === undefined) {
-    res.status(404).send();
-  }
-  res.send(match);
+  res.status(501).send({"message": "Not implemented yet"}); // Remove this line
 });
 
-// 
-app.get("/api/saved-matches", (req, res) => {
-  res.send({
-    savedMatches: savedMatches
-  });
-});
-
+// Oppgave 1c
 app.post("/api/saved-matches", (req, res) => {
-  console.log(req.body);
-  const matchId = req.body.matchId;
-  savedMatches = savedMatches.filter(match => match.matchId !== undefined && match.matchId !== matchId);
-  savedMatches.push({
-    matchId: matchId
-  });
-  res.send({
-    matchId: matchId,
-  });
+  res.status(501).send({"message": "Not implemented yet"}); // Remove this line
 });
 
+// Oppgave 1d
 app.delete("/api/saved-matches/:id", (req, res) => {
-  const matchId = parseInt(req.params.id, 10);
-  savedMatches = savedMatches.filter(match => match.matchId !== matchId);
-  res.status(200).send();
+  res.status(501).send({"message": "Not implemented yet"}); // Remove this line
+});
+
+// Oppgave 1e
+app.get('/api/channels/:id', (req, res) => {
+  res.status(501).send({"message": "Not implemented yet"}); // Remove this line
+});
+
+// Oppgave 2b
+app.get('/api/weather/', (req, res) => {
+  res.status(501).send({"message": "Not implemented yet"}); // Remove this line
 });
 
 app.put("/api/saved-matches/:id", (req, res) => {
   res.status(501).send({"message": "Not implemented yet"});
 });
 
-app.get('/api/channels/:id', (req, res) => {
-  const channelId = parseInt(req.params.id);
-  const channel = channels.find(ch => ch.id === channelId);
-  if (channel === undefined) {
-    res.status(404).send();
-  } else {
-    res.send({
-      ...channel
-    })
-  }
-});
 
-app.get('/api/weather/', (req, res) => {
-  fetch("https://fotballfest-api-2019.herokuapp.com/api/weather?time=2019-06-10T20:37:17.803Z")
-    .then(res => res.json())
-    .then(weather => res.send(weather));
-});
-
-
-// Configuration and starup of server
 
 // PORT
 const port = process.env.PORT || 3000;
