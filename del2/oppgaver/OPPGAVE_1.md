@@ -68,7 +68,7 @@ Alle kampene er nå synlig i VM-planleggeren. I `server.js` er det en variabel s
 
 Først ut er endepunktet for å hente ut alle lagrede kamper. 
 ```js
-app.get("/api/savedmatches", (req, res) => {});
+app.get("/api/saved-matches", (req, res) => {});
 ```
 Metoden over skal returnere alle lagrede kamper på dette formatet: 
 ```js
