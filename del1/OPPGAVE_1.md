@@ -73,7 +73,7 @@ const id = req.params.id;
 ## Oppgave 3
 Det er mange ting i som mangler i handlelisten dersom det skal bli taco til middag. Implementer endepunktet `POST /api/handleliste` som skal kunne legge til nye ting i handlelisten.
 
-Du gjør POST-request i postman ved å velge POST  istedenfor GET. En post request trenger en body med objektet som skal opprettes. Du legger til en JSON body i Postman slik:
+Du gjør en POST-request i postman ved å velge POST istedenfor GET. En post request trenger en body med objektet som skal opprettes. Du legger til en JSON body i Postman slik:
 -	Trykk på fanen body
 -	Huk av for «raw» 
 -	Velg JSON (application/json) i nedtrekksmenyen til høyre. 
