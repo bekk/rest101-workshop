@@ -152,7 +152,7 @@ Denne har en X i høyre hjørne.
 Fyll inn ressursen under i server.js, slik at kamper kan bli fjernet i det du sletter de. 
 
 ```
-app.delete("/api/savedmatches/:id", (req,res) => {
+app.delete("/api/saved-matches/:id", (req,res) => {
    // Din kode her
 }
 ```
