@@ -3,7 +3,7 @@ I ddel 1 skal vi lage et REST API for en handleliste. Du vil bli kjent med expre
 
 ## Kom i gang
 1.	Last ned og installer Postman fra https://www.getpostman.com/downloads/ 
-2.	Gjør en request fra postma:
+2.	Gjør en request fra postman:
     1. Velg verbet GET
     2. Skriv inn ` postman-echo.com/get` i feltet der det står «Enter request URL».
     3. Trykk send. Sjekk at du får en respons før du går videre.
@@ -16,7 +16,7 @@ I ddel 1 skal vi lage et REST API for en handleliste. Du vil bli kjent med expre
 Denne siste kommandoen starter webserveren ved å kjører scriptet `server` som er definert i `package.json`.
 
 ## Oppgave 1
-I denne oppgaven skal vi gå raskt gjennom hva en express app består av og hvordan vi lager API-endepunkt.
+I denne oppgaven skal vi gå raskt gjennom hva en express-app består av og hvordan vi lager API-endepunkt.
 
 Åpne filen `del1/server.js` i din favoritt editor. Her har vi satt opp skallet for API-et du skal implementere.
 
@@ -28,9 +28,9 @@ const app = express();
 
 `app`-objektet kan vi bruke til å sette opp endepunkter for API-et. Vi har alt satt opp endepunktet `GET /api/handleliste`.
 
-Vi kallet `.get()`-metdoen på `app`-objektet for å opprette et endepunkt som håndterer request med verbet GET. Denne metoden har to parametere. Url-en endepunktet skal svare på og en funksjon som håndterer requests. Disse to tingene kaller vi henoldsvis for _route_ og _handler_. 
+Vi kaller `.get()`-metdoen på `app`-objektet for å opprette et endepunkt som håndterer requests med verbet GET. Denne metoden har to parametere. Url-en endepunktet skal svare på og en funksjon som håndterer requesten. Disse to tingene kaller vi henoldsvis for _route_ og _handler_. 
 
-Handler funksjonen tar også inn to parametere, `req` og `res`. `req` er et objekt med informasjon om requesten og `res` er et objekt som lar deg styre hvordan endepunktet skal respondere på requesten. Under er et eksempel på et endepunkt:
+Handler-funksjonen tar også inn to parametere, `req` og `res`. `req` er et objekt med informasjon om requesten og `res` er et objekt som lar deg styre hvordan endepunktet skal respondere på requesten. Under er et eksempel på et endepunkt:
 ```js
 app.get("/url/til/endepunkt", (req, res) => {
   const response = "Hello world!";
@@ -41,13 +41,13 @@ app.get("/url/til/endepunkt", (req, res) => {
 Dette API-endepunktet svarer på requests med verbet `GET`. Dersom du ønsker å lage et endepunkt som svarer på `DELETE`, bruker du metoden `.delete()` istedenfor `.get()`. Tilsvarende gjelder for `PUT` og `POST`. Om du vil vite mer om routing i express, ta en kikk på dokumentasjonen [her](https://expressjs.com/en/starter/basic-routing.html).
 
 
-På bunnen av filen `server.js` kaller vi metoden `.list()` på app-objektet. Denne metoden gjør at express lytter etter requests på porten som sendes inn som første parameter. Når det kommer en request på denne porten, forsøker express å sende requesten til handler som matcher med verg og route til requesten. Om express ikk finne noen handler som matcher, svarer serveren med 404 - Nor found.
+På bunnen av filen `server.js` kaller vi metoden `.listen()` på app-objektet. Denne metoden gjør at express lytter etter requests på porten som sendes inn som første parameter. Når det kommer en request på denne porten, forsøker express å sende requesten til en handler som matcher med verb og route til requesten. Om express ikke finner noen handler som matcher, svarer serveren med 404 - Not found.
 
 **Din oppgave**: 
-Gjøre en GET request mot http://localhost:3000/api/handleliste i Postman. Sjekk at du får ut handlelisten og gå videre til neste oppgave.
+Gjøre en GET-request mot http://localhost:3000/api/handleliste i Postman. Sjekk at du får ut handlelisten og gå videre til neste oppgave.
 
 ## Oppgave 2
-Endepunktet `GET /api/handleliste` returnerer ikke alle egenskapene til tingene i handlelisten. I REST endepunkt der man returnerer alle tingene i samling, er det kun de viktigste egenskapene tingene som skal returneres. Dette er for å gjøre responsen fra serveren så liten som mulig. 
+Endepunktet `GET /api/handleliste` returnerer ikke alle egenskapene til tingene i handlelisten. I REST-endepunkt der man returnerer alle tingene i en samling, er det kun de viktigste egenskapene for tingene som skal returneres. Dette er for å gjøre responsen fra serveren så liten som mulig. 
 
 I handlelisten som returneres i oppgave 1 er egenskapen `kommentar` utelatt. Du skal nå implementere endepunktet som lar deg hente ut all informasjon om et objekt i handlelisten.
 Endepunktet skal være på dette formatet: ```GET /api/handleliste/2```.
@@ -65,7 +65,7 @@ Tallet 2 er id-en til tingen i handlelisten du ønsker å hente ut. Svaret på r
 **Nyttige lenker:**
 Express.js dokumentasjon om req-objektet. //TODO
 
-Hint: Du kan hente ut id-en fra `req`slik:
+Hint: Du kan hente ut id-en fra `req` slik:
 ```js
 const id = req.params.id;
 ```
@@ -73,12 +73,12 @@ const id = req.params.id;
 ## Oppgave 3
 Det er mange ting i som mangler i handlelisten dersom det skal bli taco til middag. Implementer endepunktet `POST /api/handleliste` som skal kunne legge til nye ting i handlelisten.
 
-Du gjør en POST-request i postman ved å velge POST istedenfor GET. En post request trenger en body med objektet som skal opprettes. Du legger til en JSON body i Postman slik:
+Du gjør en POST-request i postman ved å velge POST istedenfor GET. En post-request trenger en body med objektet som skal opprettes. Du legger til en JSON body i Postman slik:
 -	Trykk på fanen body
 -	Huk av for «raw» 
 -	Velg JSON (application/json) i nedtrekksmenyen til høyre. 
 
-I request bodyen skal du ikke sende med `id`. Denne skal bestemmes av serveren. 
+I request-bodyen skal du ikke sende med `id`. Denne skal bestemmes av serveren. 
 
 Du har løst oppgaven og kan gå videre til dersom endepunktet returnerer:
 -	en passende [statuskode](https://restfulapi.net/http-status-codes/) og
@@ -93,7 +93,7 @@ Du har løst oppgaven og kan gå videre til dersom endepunktet returnerer:
 ```
 
 ## Oppgave 4
-Ingen har råd til mer enn en avokado. For å endre antall ønskede avokadoer i handlelisten til 1 må du lage et endepunkt som lar deg endre på et objekter i listen. Dette gjøres med verbet `PUT`.
+Ingen har råd til mer enn én avokado. For å endre antall ønskede avokadoer i handlelisten til 1 må du lage et endepunkt som lar deg endre på antall objekter i listen. Dette gjøres med verbet `PUT`.
 
 Implementer følgende endepunkt:
 ```PUT /api/handleliste/:id```
