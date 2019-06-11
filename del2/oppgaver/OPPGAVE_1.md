@@ -62,7 +62,7 @@ Du er ferdig med oppgaven når alle kampene listes ut i VM-planleggeren.
 *Hint 2:* Koden som ligger i api.js er et hardkodet utdrag av det man forventer å få i retur. Det vil si at responsen du mottar som et minimum må inneholde feltene som er hardkodet der.
 
 ## b)
-Alle kampene er nå synlig i VM-planleggeren. I `server.js` er den variabel som heter `savedMatches`. Dette er en liste med kamper som skal vises på toppen av VM-planleggeren. Det er to endepunkt som må implementeres for at dette skal virke. Et for å hente alle lagrede kamper, og et for å hente informasjon om en kamp. Du skal nå implementere disse endepunktene.
+Alle kampene er nå synlig i VM-planleggeren. I `server.js` er det en variabel som heter `savedMatches`. Dette er en liste med kamper som skal vises på toppen av VM-planleggeren. Det er to endepunkt som må implementeres for at dette skal virke. Et for å hente alle lagrede kamper, og et for å hente informasjon om en kamp. Du skal nå implementere disse endepunktene.
 
 **1. GET /api/saved-matches**
 
