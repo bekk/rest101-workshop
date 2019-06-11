@@ -5,7 +5,7 @@ Følg instruksene i [README](https://github.com/bekk/rest101-workshop).
 
 Velkommen til VM-planleggeren. I dag skal dere lage en applikasjon hvor dere kan planlegge hvilke VM-kamper dere ønsker å se på fra Kontraskjæret.
 
-Appen er består av en frontend som er nesten helt ferdig og en backend som dere skal skrive i løpet av denne workshoppen. Frontenden er skrevet med rammeverket [React](https://reactjs.org/) og backenden skal lages med rammeverket [express.js](https://expressjs.com/). 
+Appen består av en frontend som er nesten helt ferdig og en backend som dere skal skrive i løpet av denne workshoppen. Frontenden er skrevet med rammeverket [React](https://reactjs.org/) og backenden skal lages med rammeverket [express.js](https://expressjs.com/). 
 
 ## a)
 Akkurat nå er ikke applikasjonen spesielt spennende. Den har en hardkodet kamp som ligger i frontenden til applikasjonen. 
