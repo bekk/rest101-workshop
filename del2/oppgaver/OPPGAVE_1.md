@@ -57,7 +57,7 @@ For å gjøre et nettverkskall fra JavaScript i nettleseren kan du bruke funksjo
 
 Du er ferdig med oppgaven når alle kampene listes ut i VM-planleggeren. 
 
-*Hint 1:* Se på metoden som henter ut alle lage i VM på toppen av `api.js`.
+*Hint 1:* Se på metoden som henter ut alle lagene i VM på toppen av `api.js`.
 
 *Hint 2:* Koden som ligger i api.js er et hardkodet utdrag av det man forventer å få i retur. Det vil si at responsen du mottar som et minimum må inneholde feltene som er hardkodet der.
 
