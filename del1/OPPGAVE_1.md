@@ -3,7 +3,7 @@ I ddel 1 skal vi lage et REST API for en handleliste. Du vil bli kjent med expre
 
 ## Kom i gang
 1.	Last ned og installer Postman fra https://www.getpostman.com/downloads/ 
-2.	Gjør en request fra postma:
+2.	Gjør en request fra postman:
     1. Velg verbet GET
     2. Skriv inn ` postman-echo.com/get` i feltet der det står «Enter request URL».
     3. Trykk send. Sjekk at du får en respons før du går videre.
