@@ -13,11 +13,13 @@ Mye av hverdagen består i å google, så du kan like godt begynne i dag.
 
 ## Hint: 
 * Test endepunktet i postman før du forsøker å bruke det i prosjektet. Postman støtter autentisering.
-* JSONP er ikke lov å benytte
-* Prinsippet om at http://vg.no ikke kan gjøre requester til http://dagbladet.no gjelder ikke for server-til-server-kommunikasjon
 
 ## b)
 
 Det er vanskelig å planlegge å dra på Kontraskjæret uten å vite hvilket vær som er meldt. 
-På https://fotballfest-api-2019.herokuapp.com/api/weather kjører et vær-API. Dette API-et forventer en query-param som heter time og består av et URIEncoded tidsstempel. Lag et API og tilhørende frontend for å hente ut været for en gitt kamp. 
+På https://fotballfest-api-2019.herokuapp.com/api/weather kjører et vær-API. Dette API-et forventer en query-param som heter `time` og består av et URIEncoded UTC-tidsstempel på formatet `2019-06-15T11:28:28Z`. Koble løsningen på dette endepunktet for å vise været for en gitt kamp. 
 
+## Hint: 
+* Test endepunktet i postman før du forsøker å bruke det i prosjektet.
+* JSONP er ikke lov å benytte
+* Prinsippet om at frontenden til http://vg.no ikke kan gjøre requester til http://dagbladet.no gjelder ikke for server-til-server-kommunikasjon
