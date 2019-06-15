@@ -5,7 +5,7 @@ Følg instruksene i [README](https://github.com/bekk/rest101-workshop).
 
 Velkommen til VM-planleggeren. I dag skal dere lage en applikasjon hvor dere kan planlegge hvilke VM-kamper dere ønsker å se på fra Kontraskjæret.
 
-Appen er består av en frontend som er nesten helt ferdig og en backend som dere skal skrive i løpet av denne workshoppen. Frontenden er skrevet med rammeverket [React](https://reactjs.org/) og backenden skal lages med rammeverket [express.js](https://expressjs.com/). 
+Appen består av en frontend som er nesten helt ferdig og en backend som dere skal skrive i løpet av denne workshoppen. Frontenden er skrevet med rammeverket [React](https://reactjs.org/) og backenden skal lages med rammeverket [express.js](https://expressjs.com/). 
 
 ## a)
 Akkurat nå er ikke applikasjonen spesielt spennende. Den har en hardkodet kamp som ligger i frontenden til applikasjonen. 
@@ -57,18 +57,18 @@ For å gjøre et nettverkskall fra JavaScript i nettleseren kan du bruke funksjo
 
 Du er ferdig med oppgaven når alle kampene listes ut i VM-planleggeren. 
 
-*Hint 1:* Se på metoden som henter ut alle lage i VM på toppen av `api.js`.
+*Hint 1:* Se på metoden som henter ut alle lagene i VM på toppen av `api.js`.
 
 *Hint 2:* Koden som ligger i api.js er et hardkodet utdrag av det man forventer å få i retur. Det vil si at responsen du mottar som et minimum må inneholde feltene som er hardkodet der.
 
 ## b)
-Alle kampene er nå synlig i VM-planleggeren. I `server.js` er den variabel som heter `savedMatches`. Dette er en liste med kamper som skal vises på toppen av VM-planleggeren. Det er to endepunkt som må implementeres for at dette skal virke. Et for å hente alle lagrede kamper, og et for å hente informasjon om en kamp. Du skal nå implementere disse endepunktene.
+Alle kampene er nå synlig i VM-planleggeren. I `server.js` er det en variabel som heter `savedMatches`. Dette er en liste med kamper som skal vises på toppen av VM-planleggeren. Det er to endepunkt som må implementeres for at dette skal virke. Et for å hente alle lagrede kamper, og et for å hente informasjon om en kamp. Du skal nå implementere disse endepunktene.
 
 **1. GET /api/saved-matches**
 
 Først ut er endepunktet for å hente ut alle lagrede kamper. 
 ```js
-app.get("/api/savedmatches", (req, res) => {});
+app.get("/api/saved-matches", (req, res) => {});
 ```
 Metoden over skal returnere alle lagrede kamper på dette formatet: 
 ```js
@@ -113,7 +113,7 @@ Hvis du forsøker å legge til en kamp, så skjer det ingenting.
 Ta en kikk i `server.js`. Fyll ut endepunktet under, slik at kampene du legger til blir lagret: 
 
 ```js
-app.post("/api/savedmatches", (req, res) => {
+app.post("/api/saved-matches", (req, res) => {
    // Din kode her
 });
 ```
@@ -123,7 +123,7 @@ PS! Lagringsmodellen din kan være veldig dum. Man kommer veldig langt med
 const savedMatches = [];
 
 //...
-app.post("/api/savedmatches", (req, res) => {
+app.post("/api/saved-matches", (req, res) => {
    const savedMatch = {} // Velg parametrene du ønsker å lagre her
    savedmatches.push(savedMatch);
    // Husk å svare med res.send(...)
@@ -152,7 +152,7 @@ Denne har en X i høyre hjørne.
 Fyll inn ressursen under i server.js, slik at kamper kan bli fjernet i det du sletter de. 
 
 ```
-app.delete("/api/savedmatches/:id", (req,res) => {
+app.delete("/api/saved-matches/:id", (req,res) => {
    // Din kode her
 }
 ```
