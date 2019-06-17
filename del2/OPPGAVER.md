@@ -194,7 +194,7 @@ Skriv om "/matches" slik at det følger med lenker til relevante operasjoner man
 
 Definition of done: /matches er eneste hardkodede lenken i frontend.
 
-## Tips:
+## Tips
 Det finnes ingen fasit på hvordan dette kan løses. Måten undertegnede har løst det på prosjekt er å la hver entitet (f.eks. kamp) ha med følgende
  JSON-data.
 
