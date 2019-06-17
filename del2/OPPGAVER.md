@@ -53,9 +53,10 @@ For å gjøre et nettverkskall fra JavaScript i nettleseren kan du bruke funksjo
 
 Du er ferdig med oppgaven når alle kampene listes ut i VM-planleggeren. 
 
-*Hint 1:* Se på metoden som henter ut alle lagene i VM på toppen av `api.js`.
 
-*Hint 2:* Koden som ligger i api.js er et hardkodet utdrag av det man forventer å få i retur. Det vil si at responsen du mottar som et minimum må inneholde feltene som er hardkodet der.
+## Hint
+* Se på metoden som henter ut alle lagene i VM på toppen av `api.js`.
+* Koden som ligger i api.js er et hardkodet utdrag av det man forventer å få i retur. Det vil si at responsen du mottar som et minimum må inneholde feltene som er hardkodet der.
 
 ## b)
 Alle kampene er nå synlig i VM-planleggeren. Backenden har et endepunkt som heter `/api/saved-matches`. Dette er en liste med kamper som skal vises på toppen av VM-planleggeren og har en respons som ser slik ut:
@@ -111,9 +112,9 @@ Hvis du forsøker å legge til en kamp, så skjer det ingenting. Ta en kikk i `s
 
 Fyll ut `saveMatch(matchId)` i `api.js`. Også denne funksjonen skal returnere et promise som resulterer i responsen fra endepunktet.  Det kan være lurt å bruke artikkelen [*Using fetch*](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch) for å få `fetch`-kallet til å bli riktig.
 
-*Hint 1:* Har du satt riktig headere?
-
-*Hint 2:* Har du gjort om body-parameteren til en string?
+## Hint
+* Har du satt riktig headere?
+* Har du gjort om body-parameteren til en string?
 
 **Definition of done:** Kamper du har lagt til blir synlig i toppen av skjermen. Kamper du har lagret blir også værende dersom du refresher siden. 
 
@@ -133,7 +134,7 @@ OBS!
 Tjenesten benytter Basic Auth (Brukernavn/Passord: kontraskjaeret/Sommerjobb2019).
 Mye av hverdagen består i å google, så du kan like godt begynne i dag.
 
-## Hint: 
+## Hint 
 * Test endepunktet i postman før du forsøker å bruke det i prosjektet. Postman støtter autentisering.
 
 ## f)
@@ -141,13 +142,13 @@ Mye av hverdagen består i å google, så du kan like godt begynne i dag.
 Det er vanskelig å planlegge å dra på Kontraskjæret uten å vite hvilket vær som er meldt. 
 På https://fotballfest-api-2019.herokuapp.com/api/weather kjører et vær-API. Dette API-et forventer en query-param som heter `time` og består av et URIEncoded UTC-tidsstempel på formatet `2019-06-15T11:28:28Z`. Koble løsningen på dette endepunktet for å vise været for en gitt kamp. 
 
-## Hint: 
+## Hint
 * Test endepunktet i postman før du forsøker å bruke det i prosjektet.
 * JSONP er ikke lov å benytte
 * Prinsippet om at frontenden til http://vg.no ikke kan gjøre requester til http://dagbladet.no gjelder ikke for server-til-server-kommunikasjon
 
 
-# Oppgave 3: Versjonering
+# Oppgave 3 - Versjonering
 
 Du har mottatt en forespørsel fra en venn som har lyst til å ta i bruk API-et ditt.
 Som den gode vennen du er, tillater du at vennen din tar dette i bruk.
@@ -189,7 +190,7 @@ API-et støtter også å fjerne deltakere. Gjør en DELETE mot https://fotballfe
 
 
 
-# Bonusoppgave 2: HATEOAS
+# Bonusoppgave 2 - HATEOAS
 HATEOAS står får Hypermedia As The Engine Of Application State. Prinsippet er at man med REST-apier skal kunne navigere seg rundt i et API.
 
 Skriv om "/matches" slik at det følger med lenker til relevante operasjoner man kan gjøre med en kamp. Det vil si å legge til eller fjerne en kamp fra lagrede kamper.
