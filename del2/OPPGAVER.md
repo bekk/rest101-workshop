@@ -1,7 +1,129 @@
 
 # Oppgave 2
 
+
+Følg instruksene i [README](https://github.com/bekk/rest101-workshop). 
+Åpne nettleser på localhost:3000
+
+Velkommen til VM-planleggeren. I dag skal dere lage en applikasjon hvor dere kan planlegge hvilke VM-kamper dere ønsker å se på fra Kontraskjæret.
+
+Appen består av en frontend som er nesten helt ferdig og en backend som er nesten helt ferdig. Det som gjenstår er å ferdigstille og ta i bruk API-et for å koble dem sammen. Frontenden er skrevet med rammeverket [React](https://reactjs.org/) og backenden skal lages med rammeverket [express.js](https://expressjs.com/). 
+
+
 ## a)
+Akkurat nå er ikke applikasjonen spesielt spennende. Den har en hardkodet kamp som ligger i frontenden til applikasjonen. 
+Første oppgave går ut på å hente alle kampene.
+
+
+### Steg 1
+
+Backenden implementerer endepunktet `/api/matches`. Responsen på et GET kall ser slik ut:
+
+```js
+{
+    "matches": [
+        {
+            "matchCategory": "First Stage",
+            "name": 0,
+            "fifa_id": "300438238",
+            "home_team": "FRA",
+            "away_team": "KOR",
+            "home_result": 4,
+            "away_result": 0,
+            "date": "2019-06-07T19:00:00Z",
+            "channels": [
+                14
+            ],
+            "finished": true
+        },
+        ...
+    ]
+}
+```
+
+I `frontend/utils/api.js` finner du en del metoder som forventes å fylles ut i løpet av denne workshopen. Din første oppgave er å fylle ut metoden `getAllMatches()` i `api.js`.
+
+
+Denne metoden skal returnere et *Promise* som resulterer i et objekt i JSON format. Objektet skal være det samme som responsen fra serveren på endepunktet `/api/matches`.
+
+Nå lurer du kanskje på hva et Promise er. Dette kan du lese om [her](https://johhorn.gitbooks.io/web-intro/05-javascript/08-promises.html).
+
+For å gjøre et nettverkskall fra JavaScript i nettleseren kan du bruke funksjonen `fetch()`. Hvordan du bruker `fetch()` kan du lese om i artikklen [*Using fetch*](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch).
+
+
+Du er ferdig med oppgaven når alle kampene listes ut i VM-planleggeren. 
+
+*Hint 1:* Se på metoden som henter ut alle lagene i VM på toppen av `api.js`.
+
+*Hint 2:* Koden som ligger i api.js er et hardkodet utdrag av det man forventer å få i retur. Det vil si at responsen du mottar som et minimum må inneholde feltene som er hardkodet der.
+
+## b)
+Alle kampene er nå synlig i VM-planleggeren. Backenden har et endepunkt som heter `/api/saved-matches`. Dette er en liste med kamper som skal vises på toppen av VM-planleggeren og har en respons som ser slik ut:
+
+Metoden over skal returnere alle lagrede kamper på dette formatet: 
+```js
+{
+   "savedMatches": [
+      {
+         "matchId": 3
+      },
+      ...
+   ]
+}
+
+```
+
+Det er to kall som må gjøres for å hente ut informasjon om lagrede kamper, et for å hente alle lagrede kamper, og et for å hente informasjon om en kamp. Sistnevnte finnes på `/api/matches/:id` og har følgende respons:
+
+```js
+{
+   "matchCategory": "First Stage",
+   "id": 2,
+   "fifa_id": "300438234",
+   "home_team": "ESP",
+   "away_team": "RSA",
+   "home_result": 3,
+   "away_result": 1,
+   "date": "2019-06-08T16:00:00Z",
+   "channels": [
+      14
+   ],
+   "finished": true
+}
+```
+
+Du må fylle ut funksjonen `getAllSavedMatches()` og `getMatch(matchId)` i `api.js`. Responsen til dette endepunktet er være objektet som ble lagt til i listen. For eksempel:
+```js
+{
+   "matchId": 3
+}
+```
+
+Når dette er gjort, skal det vises like mange kamper på toppen av VM-planleggeren som det er kamper i `savedMatches` variablen.
+
+## c)
+Hvis du forsøker å legge til en kamp, så skjer det ingenting. Ta en kikk i `server.js`. Responsen til dette endepunktet er  objektet som ble lagt til i listen. For eksempel:
+```js
+{
+   "matchId": 3
+}
+```
+
+Fyll ut `saveMatch(matchId)` i `api.js`. Også denne funksjonen skal returnere et promise som resulterer i responsen fra endepunktet.  Det kan være lurt å bruke artikkelen [*Using fetch*](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch) for å få `fetch`-kallet til å bli riktig.
+
+*Hint 1:* Har du satt riktig headere?
+
+*Hint 2:* Har du gjort om body-parameteren til en string?
+
+**Definition of done:** Kamper du har lagt til blir synlig i toppen av skjermen. Kamper du har lagret blir også værende dersom du refresher siden. 
+
+## d)
+Dersom alt har gått bra nå kommer dine lagrede kamper i et panel øverst på siden. 
+Denne har en X i høyre hjørne. 
+
+Fyll inn metoden `deleteMatch()` i `api.js`, slik at kamper forsvinner når du trykker de bort. 
+
+## e)
 Den observante fotballelskeren ser kanskje at noen resultater mangler. Det er fordi all data kommer fra en statisk fil som vi ikke har oppdatert enda.
 For å få med resultater kan du enten være nerden som oppdaterer resultater hvert minutt av VM. Eller så kan du være den typen som benytter seg av noen andre sine data.
 
@@ -14,7 +136,7 @@ Mye av hverdagen består i å google, så du kan like godt begynne i dag.
 ## Hint: 
 * Test endepunktet i postman før du forsøker å bruke det i prosjektet. Postman støtter autentisering.
 
-## b)
+## f)
 
 Det er vanskelig å planlegge å dra på Kontraskjæret uten å vite hvilket vær som er meldt. 
 På https://fotballfest-api-2019.herokuapp.com/api/weather kjører et vær-API. Dette API-et forventer en query-param som heter `time` og består av et URIEncoded UTC-tidsstempel på formatet `2019-06-15T11:28:28Z`. Koble løsningen på dette endepunktet for å vise været for en gitt kamp. 
@@ -100,7 +222,7 @@ Det finnes ingen fasit på hvordan dette kan løses. Måten undertegnede har lø
 
 ## Visste du at
 
-... Javascript sin array metode har en map-funksjon?
+... Javascript sin array har en map-funksjon?
 Den fungerer slik.
 ```js
 const myArray = [1,2,3]
