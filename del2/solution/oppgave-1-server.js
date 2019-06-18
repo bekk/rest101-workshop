@@ -5,14 +5,13 @@ const worldCupData = require('./worldCupData');
 
 const app = express();
 
-
 // Middlewares
-app.use(express.static("dist"));
+app.use(express.static('dist'));
 app.use(express.json());
 
 // For serving the frontend of the app
-app.get("/", (req, res) => {
-  res.sendFile("index.html", { root: __dirname });
+app.get('/', (req, res) => {
+  res.sendFile('index.html', { root: __dirname });
 });
 
 const teams = worldCupData.teams;
@@ -26,27 +25,26 @@ let savedMatches = [
   },
   {
     matchId: 5,
-  }
+  },
 ];
 
-
 // API endpoints
-app.get("/api/teams", (req, res) => {
+app.get('/api/teams', (req, res) => {
   res.send({
     teams: teams,
   });
 });
 
 // Oppgave 1a
-app.get("/api/matches", (req, res) => {
+app.get('/api/matches', (req, res) => {
   res.send({
     matches: matches,
   });
 });
 
 // Hint: Bruk req.params.id for å hente ut id.
-app.get("/api/matches/:id", (req, res) => {
-  const id = parseInt(req.params.id, 10)
+app.get('/api/matches/:id', (req, res) => {
+  const id = parseInt(req.params.id, 10);
   const match = matches.find(e => e.id === id);
   if (match === undefined) {
     res.status(404).send();
@@ -54,32 +52,34 @@ app.get("/api/matches/:id", (req, res) => {
   res.send(match);
 });
 
-// 
-app.get("/api/saved-matches", (req, res) => {
+//
+app.get('/api/saved-matches', (req, res) => {
   res.send({
-    savedMatches: savedMatches
+    savedMatches: savedMatches,
   });
 });
 
-app.post("/api/saved-matches", (req, res) => {
+app.post('/api/saved-matches', (req, res) => {
   const matchId = req.body.matchId;
-  savedMatches = savedMatches.filter(match => match.matchId !== undefined && match.matchId !== matchId);
+  savedMatches = savedMatches.filter(
+    match => match.matchId !== undefined && match.matchId !== matchId
+  );
   savedMatches.push({
-    matchId: matchId
+    matchId: matchId,
   });
   res.send({
     matchId: matchId,
   });
 });
 
-app.delete("/api/saved-matches/:id", (req, res) => {
+app.delete('/api/saved-matches/:id', (req, res) => {
   const matchId = parseInt(req.params.id, 10);
   savedMatches = savedMatches.filter(match => match.matchId !== matchId);
   res.status(200).send();
 });
 
-app.put("/api/saved-matches/:id", (req, res) => {
-  res.status(501).send({"message": "Not implemented yet"});
+app.put('/api/saved-matches/:id', (req, res) => {
+  res.status(501).send({ message: 'Not implemented yet' });
 });
 
 app.get('/api/channels/:id', (req, res) => {
@@ -89,17 +89,18 @@ app.get('/api/channels/:id', (req, res) => {
     res.status(404).send();
   } else {
     res.send({
-      ...channel
-    })
+      ...channel,
+    });
   }
 });
 
 app.get('/api/weather/', (req, res) => {
-  fetch("https://fotballfest-api-2019.herokuapp.com/api/weather?time=2019-06-10T20:37:17.803Z")
+  fetch(
+    'https://fotballfest-api-2019.herokuapp.com/api/weather?time=2019-06-10t20:37:17.803z'
+  )
     .then(res => res.json())
     .then(weather => res.send(weather));
 });
-
 
 // Configuration and starup of server
 
