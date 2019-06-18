@@ -14,7 +14,7 @@ Appen består av en frontend som er nesten helt ferdig og en backend som er nest
 Akkurat nå er ikke applikasjonen spesielt spennende. Den har en hardkodet kamp som ligger i frontenden til applikasjonen. 
 Første oppgave går ut på å hente alle kampene.
 
-Backenden implementerer endepunktet `/api/matches`. Responsen på et GET kall ser slik ut:
+Backenden implementerer endepunktet `/api/matches`. Ta en kikk i filen `server.js` for å se hvordan endepunktet er implementert. Responsen på et GET kall ser slik ut:
 
 ```js
 {
