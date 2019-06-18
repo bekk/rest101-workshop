@@ -1,8 +1,4 @@
-function getAllTeams() {
-	return fetch("/api/teams").then(res => res.json());
-}
-
-// Oppgave 1a
+// Oppgave 2a
 function getAllMatches() {
 	const dummyMatch = {
 		"matches": [{
@@ -25,7 +21,7 @@ function getAllMatches() {
 	return Promise.resolve(dummyMatch);
 }
 
-// Oppgave 1b
+// Oppgave 2b
 // Hent ut alle SavedMatches
 function getAllSavedMatches() {
 	const dummySavedMatches = {
@@ -36,7 +32,7 @@ function getAllSavedMatches() {
 	return Promise.resolve(dummySavedMatches);
 }	
 
-// Oppgave 1b
+// Oppgave 2b
 function getMatch(matchId) {
 	const dummyMatch = {
 		"matchCategory": "Group A",
@@ -50,7 +46,7 @@ function getMatch(matchId) {
 	return Promise.resolve(dummyMatch);
 }
 
-// Oppgave 1c
+// Oppgave 2c
 function saveMatch(matchId) {
 	const dummySavedMatch = {
 		"matchId": 1
@@ -58,21 +54,13 @@ function saveMatch(matchId) {
 	return Promise.resolve(dummySavedMatch);
 }
 
-// Oppgave 1d
+// Oppgave 2d
 function deleteMatchFromSavedMatches(matchId) {
 	return false;
 }
 
-// Oppgave 1e
-function fetchChannel(channelId) {
-	const dummyChannel = {
-		"icon": "https://upload.wikimedia.org/wikipedia/commons/5/59/NRK1_logo.png",
-	};
-	return Promise.resolve(dummyChannel);
-}
 
-
-// Oppgave 2b
+// Oppgave 2f
 function fetchWeather(time) {
 	/* Utdrag fra YR response objektet */
 	const dummyWeather = {
@@ -85,6 +73,18 @@ function fetchWeather(time) {
 	};
 	return Promise.resolve(dummyWeather);
 }
+
+function getAllTeams() {
+	return fetch("/api/teams").then(res => res.json());
+}
+
+function fetchChannel(channelId) {
+	const dummyChannel = {
+		"icon": "https://upload.wikimedia.org/wikipedia/commons/5/59/NRK1_logo.png",
+	};
+	return Promise.resolve(dummyChannel);
+}
+
 
 const api = {
 	getAllTeams,
